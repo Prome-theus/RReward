@@ -56,10 +56,10 @@ const Page = () => {
           Get Started
         </button>
       </div>
-    
+{/*     
       <div className="container items-center mt-4 justify-center mb-3">
         <StepWizard steps={steps} />
-      </div>
+      </div> */}
     
       {/* <div className="bg-gray-200 dark:bg-white mb-4 h-screen flex">
         {/* Brand Carousel */}
@@ -67,8 +67,8 @@ const Page = () => {
       {/* </div> */} 
 
       <div className=" justify-center h-screen">
-     
-    </div>
+
+      </div>
     </main>
   );
 }

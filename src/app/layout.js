@@ -17,8 +17,12 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} dark:bg-black`}>
         <Header/>
         <Navbar/>
+        
         {children}
-      
+
+
+
+        <Footer/>
         </body>
         
     </html>

@@ -7,12 +7,12 @@ const Header = () => {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a className="flex items-center hover:text-indigo-800 mb-4 md:mb-0">
           <img
-            className="m-auto border rounded-lg"
-            src="/logo.png"
+            className="m-auto border rounded-[14px]"
+            src="Logo.png"
             alt="Logo"
             width={50}
           />
-          <span className="center ml-3 text-3xl font-semibold dark:text-white">
+          <span className="center ml-3 text-3xl font-semibold text-black dark:text-white">
             REVIEW REWARD
           </span>
         </a>
