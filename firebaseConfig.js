@@ -1,20 +1,20 @@
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
+import "firebase/database";
 
-// import { initializeApp } from "firebase/app";
-// import 'firebase/auth';
-// import { getAnalytics } from "firebase/analytics";
+const firebaseConfig = {
+    apiKey: "AIzaSyBeS7flVSqNPekUUUFaYVfcURmPOxF0yXA",
+    authDomain: "rreward-a82b8.firebaseapp.com",
+    projectId: "rreward-a82b8",
+    storageBucket: "rreward-a82b8.appspot.com",
+    messagingSenderId: "655366098459",
+    appId: "1:655366098459:web:9fe81e07191dca405b72be"
+};
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCR9nAYNg6xr3gf1atpeOZQF1MHaG-imjU",
-//   authDomain: "reviewreward-e6c70.firebaseapp.com",
-//   projectId: "reviewreward-e6c70",
-//   storageBucket: "reviewreward-e6c70.appspot.com",
-//   messagingSenderId: "249027275546",
-//   appId: "1:249027275546:web:c7df1cc0df584771855aa3",
-//   measurementId: "G-9DH7WH5ZDM"
-// };
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 
-
-
-// export default firebaseConfig;
 
 
