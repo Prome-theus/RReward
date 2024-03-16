@@ -1,7 +1,15 @@
 "use client";
 import React from 'react';
-
 import StepWizard from '../components/StepWizard';
+
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import firebaseConfig from './firebaseConfig'; // Path to your firebaseConfig.js file
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
 import { Herr_Von_Muellerhoff } from 'next/font/google';
 
 
