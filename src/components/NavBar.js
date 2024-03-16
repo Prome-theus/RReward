@@ -3,7 +3,10 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
+
+
 const Navbar = () => {
+ 
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
