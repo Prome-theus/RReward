@@ -2,6 +2,7 @@
 import React from 'react';
 
 import StepWizard from '../components/StepWizard';
+import { Herr_Von_Muellerhoff } from 'next/font/google';
 
 
 
@@ -16,7 +17,7 @@ const leaders = [
 ];
 
 const steps = [
-  { title: 'STEP 1: LOGIN TO OUR REVIEW REWARD WEBSITE', description: 'SIGN IN AND GET VERIFIED ', buttonName: 'SIGN UP', onClick: () => console.log('Step 1 clicked') },
+  { title: 'STEP 1: LOGIN TO OUR REVIEW REWARD WEBSITE', description: 'SIGN IN AND GET VERIFIED ', buttonName: 'SIGN UP', onClick: () =>console.log('Step 2 clicked') },
   { title: 'STEP 2: GIVE REVIEW COLLECT REWARD POINTS  ', description: 'GIVE REVIEW FOR SERVICES AND PRODUCTS AND GET REWARD POINTS', buttonName: 'POST REVIEW', onClick: () => console.log('Step 2 clicked') },
   { title: 'STEP 3: COLLECT EXCITING REWARDS', description: 'CONVERT YOUR REVIEW POINTS INTO EXCITING REWARDS', buttonName: 'REWARD STORE', onClick: () => console.log('Step 3 clicked') },
 ];
