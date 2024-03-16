@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main className="flex-1">{children}</main>
         </div>
-         <Footer/>{/* Footer is placed outside of the main content container */}
+         <Footer/>
       </body>
       
     </html>
