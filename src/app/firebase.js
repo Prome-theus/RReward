@@ -8,12 +8,12 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyCQ_HOkUpX-P0Qrzb3S6WbyfaQMhc2eg6Q",
-    authDomain: "reviewreward-c661b.firebaseapp.com",
-    projectId: "reviewreward-c661b",
-    storageBucket: "reviewreward-c661b.appspot.com",
-    messagingSenderId: "1160399238",
-    appId: "1:1160399238:web:011f4ef813da2d0d378407"
+    apiKey: "AIzaSyBeS7flVSqNPekUUUFaYVfcURmPOxF0yXA",
+    authDomain: "rreward-a82b8.firebaseapp.com",
+    projectId: "rreward-a82b8",
+    storageBucket: "rreward-a82b8.appspot.com",
+    messagingSenderId: "655366098459",
+    appId: "1:655366098459:web:9fe81e07191dca405b72be"
 };
 
 // Initialize Firebase
