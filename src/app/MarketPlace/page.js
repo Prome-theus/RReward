@@ -53,8 +53,11 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-4">Marketplace</h1>
-      <button onClick={sortByPrice} className="p-2 border rounded-md mr-2">Sort by Points</button>
+      <div className="text-3xl font-bold text-center mt-5 mb-4">Marketplace</div>
+      <div class="flex items-end justify-end">
+      <button onClick={sortByPrice} className="p-2 border rounded-md mr-2">Sort</button>
+      <button onClick={sortByPrice} className="p-2 border rounded-md mr-2">Filter</button>
+      </div>
       <Marketplace products={currentProducts} />
       <div className="flex justify-center mt-4">
         <button onClick={prevPage} disabled={currentPage === 1} className="p-2 mr-2 bg-gray-300 text-gray-600 rounded-md">Prev</button>
