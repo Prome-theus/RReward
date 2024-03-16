@@ -10,11 +10,11 @@ const Navbar = () => {
         <div className="space-x-4">
           <Link href="/"className="text-white hover:underline">HOME
           </Link>
-          <Link href="/about"className="text-white hover:underline">ABOUT US
+          <Link href="/AboutUs"className="text-white hover:underline">ABOUT US
           </Link>
-          <Link href="/"className="text-white hover:underline">CATAGORY
+          <Link href="/catagory"className="text-white hover:underline">CATAGORY
           </Link>
-          <Link href="/"className="text-white hover:underline">MARKETPLACE
+          <Link href="/MarketPlace"className="text-white hover:underline">MARKETPLACE
           </Link>
           
         </div>

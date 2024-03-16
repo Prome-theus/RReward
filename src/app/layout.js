@@ -15,16 +15,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} dark:bg-black`}>
-        <Header/>
-        <Navbar/>
-        
-        {children}
-
-
-
-        <Footer/>
-        </body>
-        
+        <div className="flex flex-col">
+          <Header />
+          <Navbar />
+          <main className="flex-1">{children}</main>
+        </div>
+         <Footer/>{/* Footer is placed outside of the main content container */}
+      </body>
+      
     </html>
   )
 }
