@@ -23,10 +23,14 @@ const page = () => {
       <label className="block text-gray-700 text-sm font-bold mb-2 text-center" htmlFor="Product Category">
         Product Category
       </label>
-      <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="category" name=' Your Category' type='text' placeholder='Category'/>
+      <label className="block text-gray-700 text-sm mb-2 text-left"><input type='radio' name="category" value="Smartphones" ></input>Smartphones</label>  
+      <label className="block text-gray-700 text-sm mb-2 text-left"><input type='radio' name="category" value="Laptops" ></input>Laptops</label>
+      <label className="block text-gray-700 text-sm mb-2 text-left"><input type='radio' name="category" value="Smartwatches" ></input>Smartwatches</label>
+      <label className="block text-gray-700 text-sm mb-2 text-left"><input type='radio' name="category" value="Home Appliances" ></input>Home Appliances</label>
+      <label className="block text-gray-700 text-sm mb-2 text-left"><input type='radio' name="category" value="Computer Pheriperals" ></input>Computer Pheriperals</label>
+      <label className="block text-gray-700 text-sm mb-2 text-left"><input type='radio' name="category" value="Headphones" ></input>Headphones</label>
     </div>
-
-    <div className="md:col-span-5">
+   <div className="md:col-span-5">
       <label className="block text-gray-700 text-sm font-bold mb-2 text-center" htmlFor="Description">
         Product Description
       </label>
@@ -44,7 +48,9 @@ const page = () => {
       <label className="block text-gray-700 text-sm font-bold mb-2 text-center" htmlFor="Product Image">
         Product Image
       </label>
+
       <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="proreview" type="file" placeholder="Choose Image"/>
+      
     </div>
 
     
