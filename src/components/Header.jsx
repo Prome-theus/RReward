@@ -1,7 +1,19 @@
+"use client"
 import React from 'react';
-
+import { UserAuth } from '../app/context/AuthContext';
 
 const Header = () => {
+  const {user , googleSignIn,logOut}=UserAuth();
+  const handleSignIn= async()=>{
+    try{
+      await googleSignIn()
+    }
+    catch(error){
+      console.log(error);
+    }
+
+  }
+  
   return (
     <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -28,11 +40,11 @@ const Header = () => {
           </div>
 
           {/* Login/Signup button */}
-          <button className="text-gray-700 dark:text-white">
+         
+          <button onClick={handleSignIn} className="text-gray-700 dark:text-white">
             Login/Signup
           </button>
-
-          {/* Theme toggle */}
+          
           
         </div>
       </div>
