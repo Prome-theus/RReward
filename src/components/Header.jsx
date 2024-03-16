@@ -12,6 +12,15 @@ const Header = () => {
       console.log(error);
     }
 
+  };
+  const handleSignOut=async ()=>{
+    try {
+      await logOut()
+    }
+    catch(error){
+      console.log(error);
+    }
+
   }
   
   return (
@@ -31,20 +40,22 @@ const Header = () => {
 
         <div className="flex flex-1 justify-end items-center space-x-4">
           {/* User image */}
-          <div className="flex-shrink-0">
+          
+
+          {/* Login/Signup button */}
+         
+          
+          {!user ? <button onClick={handleSignIn} className="text-gray-700 dark:text-white">
+            Login/Signup
+          </button>:<div><a href='/DashBoard' className="flex-shrink-0">
             <img
               className="w-8 h-8 rounded-full"
               src="/user.png" // Add your user image source
               alt="User"
             />
-          </div>
-
-          {/* Login/Signup button */}
-         
-          <button onClick={handleSignIn} className="text-gray-700 dark:text-white">
-            Login/Signup
-          </button>
-          
+          </a>welcome, {user.displayName} <button onClick={handleSignOut} className="text-gray-700 dark:text-white">
+            Sign Out
+          </button></div> }
           
         </div>
       </div>
