@@ -54,7 +54,7 @@ const HomePage = () => {
   return (
     <div>
       <div className="text-3xl font-bold text-center mt-5 mb-4">Marketplace</div>
-      <div class="flex items-end justify-end">
+      <div className="flex items-end justify-end">
       <button onClick={sortByPrice} className="p-2 border rounded-md mr-2">Sort</button>
       <button onClick={sortByPrice} className="p-2 border rounded-md mr-2">Filter</button>
       </div>
