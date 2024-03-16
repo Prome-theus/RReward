@@ -30,7 +30,7 @@ const PostReview = () => {
       <label className="block text-gray-700 text-sm font-bold mb-2 text-center" htmlFor="Product Review">
         Product Review
       </label>
-      <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="proreview" type="textarea" placeholder="Product Review"/>
+      <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="proreview"  placeholder="Product Review"/>
     </div>
 
     <div className="md:col-span-5">
