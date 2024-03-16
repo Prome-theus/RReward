@@ -3,7 +3,6 @@ import React from "react";
 
 const page = () => {
   return (
-    <div>
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="container max-w-screen-sm mx-auto">
           <div>
@@ -30,7 +29,6 @@ const page = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
