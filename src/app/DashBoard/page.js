@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import ReviewCard from '@/src/components/ReviewReward';
 import Sidebar from '@/src/components/SideBar';
-
+import { UserAuth } from '../context/AuthContext';
 const Dashboard = () => {
   // Sample user data
   const [user] = useState({
