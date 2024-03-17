@@ -53,15 +53,15 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className="text-3xl font-bold text-center mt-5 mb-4">Marketplace</div>
-      <div class="flex items-end justify-end">
+      <div className="text-3xl font-bold text-center mt-4 mb-1">Marketplace</div>
+      <div className="flex items-end justify-end">
       <button onClick={sortByPrice} className="p-2 border rounded-md mr-2">Sort</button>
       <button onClick={sortByPrice} className="p-2 border rounded-md mr-2">Filter</button>
       </div>
       <Marketplace products={currentProducts} />
-      <div className="flex justify-center mt-4">
-        <button onClick={prevPage} disabled={currentPage === 1} className="p-2 mr-2 bg-gray-300 text-gray-600 rounded-md">Prev</button>
-        <button onClick={nextPage} disabled={isLastPage} className="p-2 bg-blue-500 text-white rounded-md">Next</button>
+      <div className="flex items-center justify-center">
+        <button onClick={prevPage} disabled={currentPage === 1} className="p-2 mr-2 mb-4 bg-gray-300 text-gray-600 rounded-md">Prev</button>
+        <button onClick={nextPage} disabled={isLastPage} className="p-2 mb-4 bg-blue-500 text-white rounded-md">Next</button>
       </div>
     </div>
   );

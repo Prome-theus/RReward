@@ -13,10 +13,6 @@ import StepWizard from '../components/StepWizard';
 import { Herr_Von_Muellerhoff } from 'next/font/google';
 
 
-
-
-
-
 const leaders = [
   { name: 'John Doe', score: 500 },
   { name: 'Jane Smith', score: 450 },
