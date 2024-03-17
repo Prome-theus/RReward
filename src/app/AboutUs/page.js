@@ -5,7 +5,7 @@ const page = () => {
     <div class="container my-12 py-12 mx-auto px-4 md:px-6 lg:px-12">
 
   <section class="mb-20 text-gray-800 text-center">
-    <h3 class="font-bold text-5xl mb-12 text-gray-700 ">About us</h3>
+    <h3 class="font-bold text-5xl mb-12 text-gray-700">About us</h3>
     <div class="flex flex-wrap">
       <div class="mb-6 lg:mb-0 flex-initial shrink w-full lg:w-5/12 lg:pr-3">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7000.215048360535!2d77.327229!3d28.68643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfbac1bf7ef39%3A0x27c183fb074b7265!2sDilshad%20Colony%2C%20Delhi%2C%20110095!5e0!3m2!1sen!2sin!4v1710622284899!5m2!1sen!2sin"
@@ -15,11 +15,11 @@ const page = () => {
 
       <div class="form-control block w-full px-3 py-1.5 font-bold text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none text-3xl">For User</div>
 
-      <div class="form-control block w-full px-3 py-1.5 text-base font-bold font-style: italic text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">Welcome to ReviewReward! We believe in the power of honest feedback. Share your authentic reviews and earn claimable reward points for every contribution. Whether you're reviewing products, services, or experiences, your opinion matters. Join our community of users dedicated to transparency and get rewarded for your valuable insights. Start earning points today and enjoy the benefits of being a part of ReviewReward!</div>
+      <div class="form-control block w-full px-3 py-1.5 text-base  text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">Welcome to ReviewReward! We believe in the power of honest feedback. Share your authentic reviews and earn claimable reward points for every contribution. Whether you're reviewing products, services, or experiences, your opinion matters. Join our community of users dedicated to transparency and get rewarded for your valuable insights. Start earning points today and enjoy the benefits of being a part of ReviewReward!</div>
 
       <div class="form-control block w-full px-3 py-1.5 font-bold text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none text-3xl">For Brands</div>
 
-      <div class="form-control block w-full px-3 py-1.5 text-base font-bold font-style: italic text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">Welcome to ReviewReward, where honesty is rewarded! As a brand on our platform, you have the opportunity to engage with users by offering incentives for their honest opinions about your products. Gain valuable insights while building trust and loyalty with your audience. Join us in fostering genuine feedback and rewarding authenticity. Let's collaborate to create meaningful connections and elevate consumer experiences together.</div>
+      <div class="form-control block w-full px-3 py-1.5 text-base   text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">Welcome to ReviewReward, where honesty is rewarded! As a brand on our platform, you have the opportunity to engage with users by offering incentives for their honest opinions about your products. Gain valuable insights while building trust and loyalty with your audience. Join us in fostering genuine feedback and rewarding authenticity. Let's collaborate to create meaningful connections and elevate consumer experiences together.</div>
        
       <div class="container px-6 py-12 mx-auto">
         <div>
