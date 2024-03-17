@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { db, storage } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
-
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 async function addDataToFireStore(
   productname,
@@ -13,13 +13,21 @@ async function addDataToFireStore(
   images
 ) {
   try {
-    const docRef = await addDoc(collection(db, "messages"), {
+    const imageUrls = await Promise.all(
+      images.map(async (image) => {
+        const storageRef = ref(storage, "images/" + image.name);
+        await uploadBytes(storageRef, image);
+        return getDownloadURL(storageRef);
+      })
+    );
+
+    const docRef = await addDoc(collection(db, "reviews"), {
       productname: productname,
       category: category,
       purchaseDate: purchaseDate,
       purchasePrice: purchasePrice,
       productReview: productReview,
-      images: images,
+      images: imageUrls,
     });
     console.log("Document written with ID :", docRef.id);
     return true;
@@ -31,7 +39,7 @@ async function addDataToFireStore(
 
 const PostReview = () => {
   const [productName, setProductName] = useState("");
-  const [category, setCategory] = useState("Select");
+  const [category, setCategory] = useState("");
   const [purchaseDate, setPurchaseDate] = useState("");
   const [purchasePrice, setPurchasePrice] = useState("");
   const [productReview, setProductReview] = useState("");
@@ -49,7 +57,7 @@ const PostReview = () => {
     );
     if (added) {
       setProductName("");
-      setCategory("Select");
+      setCategory("");
       setPurchaseDate("");
       setPurchasePrice("");
       setProductReview("");
@@ -62,7 +70,7 @@ const PostReview = () => {
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setImages(files);
-  }
+  };
 
   return (
     <div>
@@ -98,44 +106,18 @@ const PostReview = () => {
             Product Category
           </label>
 
-          <select className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            <option
-              selected
-              value="Smartphone"
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              Smartphone
-            </option>
-            <option
-              value="Laptops"
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              Laptops
-            </option>
-            <option
-              value="Smartwatches"
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              Smartwatches
-            </option>
-            <option
-              value="Headphones"
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              Headphones
-            </option>
-            <option
-              value="Home Appliances"
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              Home Appliances
-            </option>
-            <option
-              value="Computer Pheriperal"
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              Computer Pheriperal
-            </option>
+          <select
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            onChange={(e) => setCategory(e.target.value)}
+            value={category}
+          >
+            <option value="">Select</option>
+            <option value="Smartphone">Smartphone</option>
+            <option value="Laptops">Laptops</option>
+            <option value="Smartwatches">Smartwatches</option>
+            <option value="Headphones">Headphones</option>
+            <option value="Home Appliances">Home Appliances</option>
+            <option value="Computer Pheriperal">Computer Peripheral</option>
           </select>
 
           <div className="md:col-span-5">
