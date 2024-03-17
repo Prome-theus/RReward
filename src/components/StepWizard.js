@@ -1,10 +1,14 @@
+"use client"
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Import useRouter from next/router
 
 const StepWizard = ({ steps }) => {
   const [currentStep, setCurrentStep] = useState(0);
+  const router = useRouter(); // Initialize the router
 
-  const handleStepChange = (stepIndex) => {
+  const handleStepChange = (stepIndex, route) => {
     setCurrentStep(stepIndex);
+    router.push(route); // Navigate to the specified route
   };
 
   return (
@@ -17,7 +21,8 @@ const StepWizard = ({ steps }) => {
             {index !== steps.length - 1 && (
               <div className="border-r-2 border-gray-300 h-12 absolute top-0 bottom-0 right-0 transform translate-x-1/2" />
             )}
-            <button onClick={() => handleStepChange(index)} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">{step.buttonName}</button>
+            {/* Pass the route to handleStepChange */}
+            
           </div>
         ))}
       </div>
