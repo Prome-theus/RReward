@@ -1,17 +1,25 @@
 "use client";
 import React, { useState } from "react";
-import { db } from "./firebaseConfig";
-import { collection, addDoc } from "firebase/Firestore";
+import { db, storage } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
-async function addDataToFireStore(productname, category, purchaseDate, purchasePrice, productReview, images) {
+
+async function addDataToFireStore(
+  productname,
+  category,
+  purchaseDate,
+  purchasePrice,
+  productReview,
+  images
+) {
   try {
     const docRef = await addDoc(collection(db, "messages"), {
-      productname : productname,
-      category : category,
-      purchaseDate : purchaseDate,
-      purchasePrice : purchasePrice,
-      productReview : productReview,
-      images : images,
+      productname: productname,
+      category: category,
+      purchaseDate: purchaseDate,
+      purchasePrice: purchasePrice,
+      productReview: productReview,
+      images: images,
     });
     console.log("Document written with ID :", docRef.id);
     return true;
@@ -31,7 +39,14 @@ const PostReview = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const added = await addDataToFireStore(productName, category, purchaseDate, purchasePrice,productReview, images);
+    const added = await addDataToFireStore(
+      productName,
+      category,
+      purchaseDate,
+      purchasePrice,
+      productReview,
+      images
+    );
     if (added) {
       setProductName("");
       setCategory("Select");
@@ -72,7 +87,7 @@ const PostReview = () => {
               type="text"
               placeholder="Product Name"
               value={productName}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setProductName(e.target.value)}
             />
           </div>
 
@@ -84,14 +99,45 @@ const PostReview = () => {
           </label>
 
           <select className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-            <option selected value="Smartphone" onChange={(e)=>setCategory(e.target.value)}>Smartphone</option>
-            <option value="Laptops" onChange={(e)=>setCategory(e.target.value)}>Laptops</option>
-            <option value="Smartwatches" onChange={(e)=>setCategory(e.target.value)}>Smartwatches</option>
-            <option value="Headphones" onChange={(e)=>setCategory(e.target.value)}>Headphones</option>
-            <option value="Home Appliances" onChange={(e)=>setCategory(e.target.value)}>Home Appliances</option>
-            <option value="Computer Pheriperal" onChange={(e)=>setCategory(e.target.value)}>Computer Pheriperal</option>
+            <option
+              selected
+              value="Smartphone"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              Smartphone
+            </option>
+            <option
+              value="Laptops"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              Laptops
+            </option>
+            <option
+              value="Smartwatches"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              Smartwatches
+            </option>
+            <option
+              value="Headphones"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              Headphones
+            </option>
+            <option
+              value="Home Appliances"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              Home Appliances
+            </option>
+            <option
+              value="Computer Pheriperal"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              Computer Pheriperal
+            </option>
           </select>
-          
+
           <div className="md:col-span-5">
             <label
               className="block text-gray-700 text-sm font-bold mb-2 text-center"
@@ -104,7 +150,7 @@ const PostReview = () => {
               id="purchasedate"
               type="date"
               value={purchaseDate}
-              onChange={(e)=>setDate(e.target.value)}
+              onChange={(e) => setPurchaseDate(e.target.value)}
             />
           </div>
 
@@ -121,10 +167,10 @@ const PostReview = () => {
               type="number"
               placeholder="Purchased Price"
               value={purchasePrice}
-              onChange={(e)=>setPurchasePrice(e.target.value)}
+              onChange={(e) => setPurchasePrice(e.target.value)}
             />
           </div>
-          
+
           <div className="md:col-span-5">
             <label
               className="block text-gray-700 text-sm font-bold mb-2 text-center"
@@ -137,8 +183,8 @@ const PostReview = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="proreview"
               placeholder="Product Review"
-              value = {productReview}
-              onChange={(e)=>setProductReview(e.target.value)}
+              value={productReview}
+              onChange={(e) => setProductReview(e.target.value)}
             ></textarea>
           </div>
 
@@ -155,8 +201,7 @@ const PostReview = () => {
               type="file"
               multiple
               placeholder="Choose Image"
-              value={images}
-              onChange={(e)=>images(e.target.value)}
+              onChange={handleImageChange}
             />
           </div>
 
