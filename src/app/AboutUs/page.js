@@ -5,61 +5,78 @@ const page = () => {
     <div class="container my-12 py-12 mx-auto px-4 md:px-6 lg:px-12">
 
   <section class="mb-20 text-gray-800 text-center">
-    <h3 class="font-bold text-3xl mb-12">About us</h3>
+    <h3 class="font-bold text-5xl mb-12 text-gray-700 ">About us</h3>
     <div class="flex flex-wrap">
       <div class="mb-6 lg:mb-0 flex-initial shrink w-full lg:w-5/12 lg:pr-3">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7000.215048360535!2d77.327229!3d28.68643!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfbac1bf7ef39%3A0x27c183fb074b7265!2sDilshad%20Colony%2C%20Delhi%2C%20110095!5e0!3m2!1sen!2sin!4v1710622284899!5m2!1sen!2sin"
           class="h-56 md:h-full w-full border-0 rounded-md" allowfullscreen="" loading="lazy"></iframe>
       </div>
-      <div class="flex-initial shrink w-full lg:w-7/12 lg:pl-3">
-        <form>
-          <div class="flex flex-wrap">
-            <div class="flex-initial shrink w-full md:w-9/12 md:pr-3">
-              <div class="grid md:grid-cols-2 md:gap-4 mb-6">
-                <div class="mb-6 md:mb-0">
-                  <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleX1" placeholder="First name" />
-                </div>
-                <div>
-                  <input type="email" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleX2" placeholder="Email address" />
-                </div>
-              </div>
-              <div class="mb-6">
-                <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleX3" placeholder="Subject" />
-              </div>
-              <div class="mb-6">
-                <textarea class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleX4" rows="4" placeholder="Message"></textarea>
-              </div>
-              <div class="text-center md:text-left">
-                <button type="submit" class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mb-12 md:mb-0">Send</button>
-              </div>
+      <div class="flex-initial shrink w-full lg:w-7/12 lg:pl-3"> 
+
+      <div class="form-control block w-full px-3 py-1.5 font-bold text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none text-3xl">For User</div>
+
+      <div class="form-control block w-full px-3 py-1.5 text-base font-bold font-style: italic text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">Welcome to ReviewReward! We believe in the power of honest feedback. Share your authentic reviews and earn claimable reward points for every contribution. Whether you're reviewing products, services, or experiences, your opinion matters. Join our community of users dedicated to transparency and get rewarded for your valuable insights. Start earning points today and enjoy the benefits of being a part of ReviewReward!</div>
+
+      <div class="form-control block w-full px-3 py-1.5 font-bold text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none text-3xl">For Brands</div>
+
+      <div class="form-control block w-full px-3 py-1.5 text-base font-bold font-style: italic text-gray-700 bg-white bg-clip-padding transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">Welcome to ReviewReward, where honesty is rewarded! As a brand on our platform, you have the opportunity to engage with users by offering incentives for their honest opinions about your products. Gain valuable insights while building trust and loyalty with your audience. Join us in fostering genuine feedback and rewarding authenticity. Let's collaborate to create meaningful connections and elevate consumer experiences together.</div>
+       
+      <div class="container px-6 py-12 mx-auto">
+        <div>
+            <p class="font-medium text-blue-500 dark:text-blue-400 ">Contact us</p>
+
+            <h1 class="mt-2 text-2xl font-semibold text-gray-700 md:text-3xl dark:text-white ">Get in touch</h1>
+
+            <p class="mt-3 text-gray-500 dark:text-gray-400 ">Mail us for more Queries.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+                <span class="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 dark:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                </span>
+
+                <h2 class="mt-4 text-lg font-bold text-gray-700 dark:text-white">Email</h2>
+                <p class="mt-2 text-gray-500 dark:text-gray-400">We would love to help</p>
+                <p class="mt-2 text-blue-500 dark:text-blue-400">rndreward@gmail.com</p>
             </div>
-            <div class="flex-initial shrink w-full md:w-3/12 md:pl-3">
-              <ul>
-                <li>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-5 mx-auto text-blue-600 mb-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                    <path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path>
-                  </svg>
-                  
-                </li>
-                <li>
-                  <i class="fas fa-phone fa-2x text-blue-600"></i>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-6 mx-auto text-blue-600 mb-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path fill="currentColor" d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path>
-                  </svg>
-                  
-                </li>
-                <li>
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" class="w-6 mx-auto text-blue-600 mb-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                    <path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
-                  </svg>
-                  <p><small>rndreward@gmail.com</small></p>
-                </li>
-              </ul>
+
+            <div>
+                <span class="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 dark:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                </span>
+
+                <h2 class="mt-4 text-lg font-bold text-gray-700 dark:text-white">Office</h2>
+                <p class="mt-2 text-gray-500 dark:text-gray-400">You can also visit</p>
+                <p class="mt-2 text-blue-500 dark:text-blue-400">Dilshad Colony ,दिलशाद कॉलोनी Delhi, 110095</p>
             </div>
-          </div>
-        </form>
-      </div>
+
+            <div>
+                <span class="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80 dark:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                </span>
+
+                <h2 class="mt-4 text-lg font-bold text-gray-700 dark:text-white">Phone</h2>
+                <p class="mt-2 text-gray-500 dark:text-gray-400">Mon-Fri from 9am to 6pm.</p>
+                <p class="mt-2 text-blue-500 dark:text-blue-400">+91-8957392057</p>
+            </div>
+        </div>
     </div>
+          </div>
+          </div>
   </section>
 
 </div>
