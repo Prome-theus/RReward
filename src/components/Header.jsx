@@ -45,9 +45,9 @@ const Header = () => {
           {/* Login/Signup button */}
          
           
-          {!user ? <button onClick={handleSignIn} className="text-gray-700 dark:text-white">
+          {!user ? <a href='/Login' className="text-gray-700 dark:text-white">
             Login/Signup
-          </button>:<div><a href='/DashBoard' className="flex-shrink-0">
+          </a>:<div><a href='/DashBoard' className="flex-shrink-0">
             <img
               className="w-8 h-8 rounded-full"
               src="/user.png" // Add your user image source

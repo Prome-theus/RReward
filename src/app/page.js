@@ -13,18 +13,14 @@ import StepWizard from '../components/StepWizard';
 import { Herr_Von_Muellerhoff } from 'next/font/google';
 
 
-const leaders = [
-  { name: 'John Doe', score: 500 },
-  { name: 'Jane Smith', score: 450 },
-  { name: 'Alice Johnson', score: 400 },
-  { name: 'Bob Brown', score: 350 },
-];
+
 
 const steps = [
-  { title: 'STEP 1: LOGIN TO OUR REVIEW REWARD WEBSITE', description: 'SIGN IN AND GET VERIFIED ', buttonName: 'SIGN UP', onClick: () =>console.log('Step 2 clicked') },
-  { title: 'STEP 2: GIVE REVIEW COLLECT REWARD POINTS  ', description: 'GIVE REVIEW FOR SERVICES AND PRODUCTS AND GET REWARD POINTS', buttonName: 'POST REVIEW', onClick: () => console.log('Step 2 clicked') },
-  { title: 'STEP 3: COLLECT EXCITING REWARDS', description: 'CONVERT YOUR REVIEW POINTS INTO EXCITING REWARDS', buttonName: 'REWARD STORE', onClick: () => console.log('Step 3 clicked') },
+  { title: 'STEP 1: LOGIN TO OUR REVIEW REWARD WEBSITE', description: 'SIGN IN AND GET VERIFIED ', buttonName: 'SIGN UP', route: '/Login' },
+  { title: 'STEP 2: GIVE REVIEW COLLECT REWARD POINTS  ', description: 'GIVE REVIEW FOR SERVICES AND PRODUCTS AND GET REWARD POINTS', buttonName: 'POST REVIEW', route: '/PostReview' },
+  { title: 'STEP 3: COLLECT EXCITING REWARDS', description: 'CONVERT YOUR REVIEW POINTS INTO EXCITING REWARDS', buttonName: 'REWARD STORE', route: '/MarketPlace' },
 ];
+
 
 // Array of brand logos in image format
 const brandLogos = [
@@ -57,9 +53,9 @@ const Page = () => {
       <div className='items-center justify-center flex font-bold text-xl mb-1 dark:text-white'> SO WHAT'S STOPPING YOU </div>
     
       <div className="flex items-center mt-4 justify-center mb-3">
-        <button className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-white dark:text-black ">
+        <a href="/PostReview" className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-white dark:text-black ">
           Get Started
-        </button>
+        </a>
       </div>
  
       <div className="container items-center mt-4 justify-center mb-3">
