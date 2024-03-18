@@ -97,6 +97,7 @@ const PostReview = () => {
               placeholder="Product Name"
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
+              required
             />
           </div>
 
@@ -111,6 +112,7 @@ const PostReview = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             onChange={(e) => setCategory(e.target.value)}
             value={category}
+            required
           >
             <option value="">Select</option>
             <option value="Smartphone">Smartphone</option>
@@ -134,6 +136,7 @@ const PostReview = () => {
               type="date"
               value={purchaseDate}
               onChange={(e) => setPurchaseDate(e.target.value)}
+              required
             />
           </div>
 
@@ -151,6 +154,7 @@ const PostReview = () => {
               placeholder="Purchased Price"
               value={purchasePrice}
               onChange={(e) => setPurchasePrice(e.target.value)}
+              required
             />
           </div>
 
@@ -168,6 +172,7 @@ const PostReview = () => {
               placeholder="Product Review"
               value={productReview}
               onChange={(e) => setProductReview(e.target.value)}
+              required
             ></textarea>
           </div>
 
