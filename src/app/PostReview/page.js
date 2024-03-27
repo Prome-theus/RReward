@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { db, storage } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -8,10 +8,12 @@ import { UserAuth } from "../context/AuthContext";
 async function addDataToFireStore(
   productname,
   category,
+  brand,
   purchaseDate,
   purchasePrice,
   productReview,
-  images
+  images,
+  userEmail
 ) {
   try {
     const imageUrls = await Promise.all(
@@ -25,10 +27,12 @@ async function addDataToFireStore(
     const docRef = await addDoc(collection(db, "reviews"), {
       productname: productname,
       category: category,
+      brand:brand,
       purchaseDate: purchaseDate,
       purchasePrice: purchasePrice,
       productReview: productReview,
       images: imageUrls,
+      userEmail:userEmail,
     });
     console.log("Document written with ID :", docRef.id);
     return true;
@@ -41,24 +45,39 @@ async function addDataToFireStore(
 const PostReview = () => {
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
+  const [brand,setBrand]=useState("")
   const [purchaseDate, setPurchaseDate] = useState("");
   const [purchasePrice, setPurchasePrice] = useState("");
   const [productReview, setProductReview] = useState("");
   const [images, setImages] = useState([]);
+  const {user } = UserAuth();
+
+  const brandOptions = {
+    Smartphone: ["APPLE", "SAMSUNG", "ONEPLUS","REALME","OPPO","VIVO","REDMI","HONOR"],
+    Laptops: ["ASUS/ROG", "HP", "ACER","MSI","SAMSUNG","DELL"],
+    Smartwatches: ["BOAT", "APPLE", "AMAZEFIT","SAMSUNG","ONEPLUS","HAMMER"],
+    Headphones: ["Brand10", "Brand11", "Brand12"],
+    "Home Appliances": ["Brand13", "Brand14", "Brand15"],
+    "Computer Peripheral": ["Brand16", "Brand17", "Brand18"],
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const userEmail = user.email;
     const added = await addDataToFireStore(
       productName,
       category,
+      brand,
       purchaseDate,
       purchasePrice,
       productReview,
-      images
+      images,
+      userEmail
     );
     if (added) {
       setProductName("");
       setCategory("");
+      setBrand("")
       setPurchaseDate("");
       setPurchasePrice("");
       setProductReview("");
@@ -123,6 +142,30 @@ const PostReview = () => {
             <option value="Computer Pheriperal">Computer Peripheral</option>
           </select>
 
+         
+          {category && (
+            <div className="md:col-span-5">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2 text-center"
+                htmlFor="Product Brand"
+              >
+                Product Brand
+              </label>
+              <select
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                onChange={(e) => setBrand(e.target.value)}
+                value={brand}
+                required
+              >
+                <option value="">Select</option>
+                {brandOptions[category].map((brandOption, index) => (
+                  <option key={index} value={brandOption}>
+                    {brandOption}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
           <div className="md:col-span-5">
             <label
               className="block text-gray-700 text-sm font-bold mb-2 text-center"
