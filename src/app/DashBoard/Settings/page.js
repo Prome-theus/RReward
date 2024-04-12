@@ -3,8 +3,8 @@ import React from "react";
 export default function SettingsPage() {
   
   return (
-    <div className="bg-gray-100 min-h-screen font-sans bg-[#FDA403]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className=" min-h-screen font-sans bg-[#FDA403]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
         
         <h1 className="text-5xl font-bold px-8 py-8">Settings</h1>
 
