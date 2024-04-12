@@ -2,6 +2,7 @@
 "use client";
 import React from 'react';
 import StepWizard from '../components/StepWizard';
+import { createBrowserRouter } from 'react-router-dom';
 
 // import firebase from 'firebase/app';
 // import 'firebase/auth';
@@ -20,6 +21,7 @@ const steps = [
   { title: 'STEP 1: LOGIN TO OUR REVIEW REWARD WEBSITE', description: 'SIGN IN AND GET VERIFIED ', buttonName: 'SIGN UP', route: '/Login' },
   { title: 'STEP 2: GIVE REVIEW COLLECT REWARD POINTS  ', description: 'GIVE REVIEW FOR SERVICES AND PRODUCTS AND GET REWARD POINTS', buttonName: 'POST REVIEW', route: '/PostReview' },
   { title: 'STEP 3: COLLECT EXCITING REWARDS', description: 'CONVERT YOUR REVIEW POINTS INTO EXCITING REWARDS', buttonName: 'REWARD STORE', route: '/MarketPlace' },
+  {route: 'Dashboard/MyReview'}
 ];
 
 

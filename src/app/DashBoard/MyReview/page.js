@@ -5,7 +5,7 @@ export default function review() {
   return (
     <div>
         <title>My Review</title>
-
+        
       <p className="text-center font-bold text-6xl py-10 text-amber-600 font-mono">My Reviews</p>
 
       <main className="container mx-auto py-10 px-8 ">
@@ -27,4 +27,3 @@ export default function review() {
     </div>
   );
 }
-

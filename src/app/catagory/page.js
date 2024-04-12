@@ -30,7 +30,7 @@ const page = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <div className="text-2xl mt-4">Mobile</div>
+                <div className="text-2xl mt-4 font-bold">Mobile</div>
               </div>
             </a>
 
@@ -52,7 +52,7 @@ const page = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <div className="text-2xl mt-4">Audio</div>
+                <div className="text-2xl mt-4 font-bold">Audio</div>
               </div>
             </a>
 
@@ -75,7 +75,7 @@ const page = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <div className="text-2xl mt-4">Laptop</div>
+                <div className="text-2xl mt-4 font-bold">Laptop</div>
               </div>
             </a>
 
@@ -97,7 +97,7 @@ const page = () => {
                     fill="#0F1729"
                   />
                 </svg>
-                <div className="text-2xl mt-4">Smartwatch</div>
+                <div className="text-2xl mt-4 font-bold">Smartwatch</div>
               </div>
             </a>
 
@@ -122,7 +122,7 @@ const page = () => {
                     <path d="M20.76,24.23a1,1,0,0,0-.63-.23H11.88a1,1,0,0,0-.64.23l-4.87,4a1,1,0,0,0-.31,1.11A1,1,0,0,0,7,30H25a1,1,0,0,0,.94-.66,1,1,0,0,0-.31-1.11ZM9.79,28l2.44-2h7.54l2.44,2Z" />
                   </g>
                 </svg>
-                <div className="text-2xl mt-4">Computer <br/> Peripherals</div>
+                <div className="text-2xl mt-4 font-bold">Computer <br/> Peripherals</div>
               </div>
             </a>
 
@@ -152,7 +152,7 @@ const page = () => {
                     fill="#000000"
                   />
                 </svg>
-                <div className="text-2xl mt-4">Home Appliances</div>
+                <div className="text-2xl mt-4 font-bold">Home Appliances</div>
               </div>
             </a>
           </div>
