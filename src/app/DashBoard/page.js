@@ -39,17 +39,17 @@ const Dashboard = () => {
   ]);
 
   return (
-    <div className="flex">
+    <div className="flex bg-[#FDA403]">
       <Sidebar user={user} />
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col items-center mb-8">
-          <img src={user.image} alt={user.name} className="w-48 h-48 rounded-full mb-4" /> {/* Larger image and centered */}
-          <h1 className="text-3xl font-semibold">{user.name}</h1>
-          <p className="text-gray-600 mb-2">{user.email}</p> {/* Display email below name */}
-          <p className="text-gray-600">Review Points: {user.reviewPoints}</p>
+      <div className="container mx-auto px-4 py-8 text-[#91091E]">  
+        <div className="flex flex-col items-center mb-8 ">
+          <img src="/userprofile.jpg" alt={user.name} className="w-48 h-48 rounded-full mb-4 " /> {/* Larger image and centered */}
+          <h1 className="text-3xl font-semibold text-[#91091E]">{user.name}</h1>
+          <p className="text-black mb-2">{user.email}</p> {/* Display email below name */}
+          <p className="text-black ">Review Points: {user.reviewPoints}</p>
         </div>
-        <h1 className="text-3xl font-semibold mb-4">Your Reviews</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <h1 className="text-3xl font-semibold mb-4 text-[#91091E]">Your Reviews</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
           {userReviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
