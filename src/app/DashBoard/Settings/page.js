@@ -26,13 +26,13 @@ export default function SettingsPage() {
           </div>
 
           <div className="md:col-span-1 bg-white rounded-lg shadow-md p-6 hover:bg-[#E8751A]">
-            <h2 className="text-xl font-bold mb-4">Privacy Settings</h2>
-            <p>Privacy settings</p>
+            <h2 className="text-xl font-bold mb-4">Profile Settings</h2>
+            <p>Profile settings</p>
           </div>
 
           <div className="md:col-span-1 bg-white rounded-lg shadow-md p-6 hover:bg-[#E8751A]">
-            <h2 className="text-xl font-bold mb-4">Profile Settings</h2>
-            <p>Profile settings</p>
+            <h2 className="text-xl font-bold mb-4">Privacy Settings</h2>
+            <p>Privacy settings</p>
           </div>
 
           <div className="md:col-span-1 bg-white rounded-lg shadow-md p-6 hover:bg-[#E8751A]">
