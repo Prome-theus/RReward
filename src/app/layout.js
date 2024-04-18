@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Navbar from '../components/NavBar'
 import Footer from '../components/Footer'
 import { AuthContextProvider } from './context/AuthContext'
+import TransitionProvider from '../components/transitionProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -16,16 +17,25 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className} dark:bg-black`}>
+
         <AuthContextProvider>
         <div className="flex flex-col">
-          <Header />
-          <Navbar />
-          <main className="flex-1">{children}</main>
+        
+          <main className="flex-1"><TransitionProvider>{children}</TransitionProvider></main>
         </div>
-         <Footer/>
+         
          </AuthContextProvider>
       </body>
       
     </html>
   )
 }
+
+
+    //create a seprate databse for users data -- done
+    //on login page check user with database if new user then review points sholud be provided -- done
+    //every review point proived for the review must be added to the users review points
+    //review points must be used for buying rewards 
+    //user setting page for deleting review
+    //all review page
+    

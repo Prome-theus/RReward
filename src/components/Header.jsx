@@ -1,30 +1,27 @@
-"use client"
 import React from 'react';
 import { UserAuth } from '../app/context/AuthContext';
 
 const Header = () => {
-  const {user , googleSignIn,logOut}=UserAuth();
-  const handleSignIn= async()=>{
-    try{
-      await googleSignIn()
-    }
-    catch(error){
-      console.log(error);
-    }
+  const { user, googleSignIn, logOut } = UserAuth();
 
-  };
-  const handleSignOut=async ()=>{
+  const handleSignIn = async () => {
     try {
-      await logOut()
-    }
-    catch(error){
+      await googleSignIn();
+    } catch (error) {
       console.log(error);
     }
+  };
 
-  }
-  
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <header className="text-gray-600 body-font">
+    <header className="text-white body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a className="flex items-center hover:text-indigo-800 mb-4 md:mb-0">
           <img
@@ -33,30 +30,34 @@ const Header = () => {
             alt="Logo"
             width={50}
           />
-          <span className="center ml-3 text-3xl font-semibold text-black dark:text-white">
+          <span className="center ml-3 text-3xl font-semibol text-white">
             REVIEW REWARD
           </span>
         </a>
 
         <div className="flex flex-1 justify-end items-center space-x-4">
-          {/* User image */}
-          
-
-          {/* Login/Signup button */}
-         
-          
-          {!user ? <a href='/Login' className="text-gray-700 dark:text-white">
-            Login/Signup
-          </a>:<div><a href='/DashBoard' className="flex-shrink-0">
-            <img
-              className="w-8 h-8 rounded-full"
-              src="/user.png" // Add your user image source
-              alt="User"
-            />
-          </a>welcome, {user.displayName} <button onClick={handleSignOut} className="text-gray-700 dark:text-white">
-            Sign Out
-          </button></div> }
-          
+          {/* User image and sign out button */}
+          {user ? (
+            <div className="flex items-center">
+              <img
+                className="w-8 h-8 rounded-full"
+                src={user.photoURL} // Assuming user.photoURL contains the URL of the user's image
+                alt="User"
+              />
+              <span className="ml-2 text-gray-300">{user.displayName}</span>
+              <button
+                onClick={handleSignOut}
+                className="text-gray-700 dark:text-white"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            // Login/Signup button
+            <a href="/Login" className="text-gray-700 dark:text-white">
+              Login/Signup
+            </a>
+          )}
         </div>
       </div>
     </header>

@@ -1,84 +1,91 @@
+"use client"
+import React, { useRef } from 'react';
+import Link from 'next/link';
+import { motion, useScroll, useTransform } from "framer-motion";
 
-"use client";
-import React from 'react';
-import StepWizard from '../components/StepWizard';
-
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
-// import firebaseConfig from './firebaseConfig'; // Path to your firebaseConfig.js file
-
-// if (!firebase.apps.length) {
-//     firebase.initializeApp(firebaseConfig);
-// }
-
-import { Herr_Von_Muellerhoff } from 'next/font/google';
-
-
-
-
-const steps = [
-  { title: 'STEP 1: LOGIN TO OUR REVIEW REWARD WEBSITE', description: 'SIGN IN AND GET VERIFIED ', buttonName: 'SIGN UP', route: '/Login' },
-  { title: 'STEP 2: GIVE REVIEW COLLECT REWARD POINTS  ', description: 'GIVE REVIEW FOR SERVICES AND PRODUCTS AND GET REWARD POINTS', buttonName: 'POST REVIEW', route: '/PostReview' },
-  { title: 'STEP 3: COLLECT EXCITING REWARDS', description: 'CONVERT YOUR REVIEW POINTS INTO EXCITING REWARDS', buttonName: 'REWARD STORE', route: '/MarketPlace' },
-];
-
-
-// Array of brand logos in image format
-const brandLogos = [
-  'logo.png',
-  'logo.png',
-  'logo.png',
-  'logo.png',
-  'logo.png',
-  'logo.png',
-  'logo.png',
-  'logo.png',
-  'logo.png',
-  'logo.png',
-  // Add more image paths as needed
+const items = [
+  {
+    id: 1,
+    color: "from-[#475569] to-[#334155]",
+    title: "SIGN UP",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+    link: "https://lama.dev",
+  },
+  {
+    id: 2,
+    color: "from-slate-800 to-slate-900",
+    title: "POST REVIEW",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+    link: "https://lama.dev",
+  },
+  {
+    id: 3,
+    color: "from-slate-900 to-slate-950",
+    title: "EARN EXCITING REWARDS",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    img: "https://images.pexels.com/photos/6894528/pexels-photo-6894528.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+    link: "https://lama.dev",
+  },
 ];
 
 const Page = () => {
-  return (
-    <main className="flex flex-col items-center">
-      <div className='dark:text-white text-8xl font-bold p-4 rounded-lg flex items-center justify-center'>
-        GIVE REVIEW.
-      </div>
-    
-      <div className='dark:text-white text-8xl font-bold p-4 rounded-lg flex items-center justify-center'>
-        TAKE REWARD.
-      </div>
-    
-      <div className='items-center justify-center flex font-bold text-xl dark:text-white'>EVERY REVIEW YOU POST COMES WITH EXCITING PRIZES</div>
-    
-      <div className='items-center justify-center flex font-bold text-xl mb-1 dark:text-white'> SO WHAT'S STOPPING YOU </div>
-    
-      <div className="flex items-center mt-4 justify-center mb-3">
-        <a href="/PostReview" className="bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded dark:bg-white dark:text-black ">
-          Get Started
-        </a>
-      </div>
- 
-      <div className="container items-center mt-4 justify-center mb-3">
-        <StepWizard steps={steps} />
-      </div> 
-    
-      {/* <div className="bg-gray-200 dark:bg-white mb-4 h-screen flex">
-        {/* Brand Carousel */}
-        {/* <BrandCarousel brandLogos={brandLogos} /> */}
-      {/* </div> */} 
+  const ref = useRef();
+  const { scrollYProgress } = useScroll({ target: ref });
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
 
-      <div className=" justify-center h-screen">
-      <section className="bg-white dark:bg-gray-900">
+  return (
+    <motion.div
+      className="h-full w-full"
+      initial={{ y: "-200vh" }}
+      animate={{ y: "0%" }}
+      transition={{ duration: 1 }}
+    >
+      <div className="h-[600vh] bg-[#18181b] relative" ref={ref}>
+        <div className="w-screen h-[calc(100vh-6rem)] text-white flex flex-col items-center justify-center text-8xl text-center">
+          <div>GIVE REVIEW.</div>
+          <div>EARN REWARDS.</div>
+          <div className='bg-[#18181b] mt-5'>
+            <div className=' text-4xl dark:text-white'>EVERY REVIEW YOU POST COMES WITH EXCITING PRIZES</div>
+            <div className='text-4xl dark:text-white'>SO WHAT'S STOPPING YOU</div>
+          </div>
+        </div>
+
+        <div className="sticky top-0 flex h-screen gap-4 items-center overflow-hidden">
+          <motion.div style={{ x }} className="flex">
+            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-[#64748b] to-slate-600" />
+            {items.map((item) => (
+              <div
+                className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}
+                key={item.id}
+              >
+                <div className="flex flex-col gap-8 text-white">
+                  <h1 className="text-xl md:text-4xl lg:text-6xl xl:text-8xl font-bold">
+                    {item.title}
+                  </h1>
+                  <p className="w-80 md:w-[500px] md:text-lg xl:w-[600px]">
+                    {item.desc}
+                  </p>
+                  <Link href={item.link}>
+                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded">See Demo</button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+      <div className="bg-[#18181b] w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
-          <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2 className="mb-4 text-4xl font-extrabold text-gray-900 dark:text-white">
+          <div className="font-light text-white sm:text-lg dark:text-gray-400">
+            <h2 className="mb-4 text-4xl font-extrabold text-white">
               REWARD FOR REVIEW
             </h2>
             <p className="mb-4">
-            Compose a detailed review outlining your experience with the product, covering its performance, durability, ease of use, and any other pertinent factors. Offer genuine insights to aid potential buyers in making informed decisions.
+              Compose a detailed review outlining your experience with the product, covering its performance, durability, ease of use, and any other pertinent factors. Offer genuine insights to aid potential buyers in making informed decisions.
             </p>
-            
           </div>
           <div className="grid grid-cols-2 gap-4 mt-8">
             <img
@@ -93,21 +100,19 @@ const Page = () => {
             />
           </div>
         </div>
-      </section>
-      <section className=" dark:bg-gray-800">
+      </div>
+
+      <section className="bg-[#18181b] w-screen h-screen flex flex-col gap-16 items-center justify-center text-center dark:bg-gray-800">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-          <div className="max-w-screen-lg text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+          <div className="max-w-screen-lg sm:text-lg text-white">
+            <h2 className="mb-4 text-4xl font-bold text-white">
               Helping users for better shopping and product experience
-              <span className="font-extrabold"></span> 
-              
+              <span className="font-extrabold"></span>
             </h2>
             <p className="mb-4 font-light">
               Exciting rewards for every review you post.
-              Reward Review makes the service provider understand the customers and the reponse of the users on the products.
+              Reward Review makes the service provider understand the customers and the response of the users on the products.
             </p>
-            <p className="mb-4 font-medium"
-            ></p>
             <a
               href="/AboutUs"
               className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700"
@@ -128,9 +133,8 @@ const Page = () => {
             </a>
           </div>
         </div>
-      </section> 
-      </div>
-    </main>
+      </section>
+    </motion.div>
   );
 }
 

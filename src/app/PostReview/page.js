@@ -1,9 +1,11 @@
 "use client";
-import React, { useState,useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { db, storage } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, query, where } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { UserAuth } from "../context/AuthContext";
+
+import { getDocs, doc, updateDoc } from "firebase/firestore";
 
 async function addDataToFireStore(
   productname,
@@ -13,7 +15,7 @@ async function addDataToFireStore(
   purchasePrice,
   productReview,
   images,
-  userEmail
+  userEmail,
 ) {
   try {
     const imageUrls = await Promise.all(
@@ -27,13 +29,16 @@ async function addDataToFireStore(
     const docRef = await addDoc(collection(db, "reviews"), {
       productname: productname,
       category: category,
-      brand:brand,
+      brand: brand,
       purchaseDate: purchaseDate,
       purchasePrice: purchasePrice,
       productReview: productReview,
       images: imageUrls,
-      userEmail:userEmail,
+      userEmail: userEmail,
+      reviewPoint: 100,
     });
+
+
     console.log("Document written with ID :", docRef.id);
     return true;
   } catch (error) {
@@ -45,17 +50,18 @@ async function addDataToFireStore(
 const PostReview = () => {
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
-  const [brand,setBrand]=useState("")
+  const [brand, setBrand] = useState("")
   const [purchaseDate, setPurchaseDate] = useState("");
   const [purchasePrice, setPurchasePrice] = useState("");
   const [productReview, setProductReview] = useState("");
   const [images, setImages] = useState([]);
-  const {user } = UserAuth();
+  const { user } = UserAuth();
+  const [userData, setUserData] = useState([])
 
   const brandOptions = {
-    Smartphone: ["APPLE", "SAMSUNG", "ONEPLUS","REALME","OPPO","VIVO","REDMI","HONOR"],
-    Laptops: ["ASUS/ROG", "HP", "ACER","MSI","SAMSUNG","DELL"],
-    Smartwatches: ["BOAT", "APPLE", "AMAZEFIT","SAMSUNG","ONEPLUS","HAMMER"],
+    Smartphone: ["APPLE", "SAMSUNG", "ONEPLUS", "REALME", "OPPO", "VIVO", "REDMI", "HONOR"],
+    Laptops: ["ASUS/ROG", "HP", "ACER", "MSI", "SAMSUNG", "DELL"],
+    Smartwatches: ["BOAT", "APPLE", "AMAZEFIT", "SAMSUNG", "ONEPLUS", "HAMMER"],
     Headphones: ["Brand10", "Brand11", "Brand12"],
     "Home Appliances": ["Brand13", "Brand14", "Brand15"],
     "Computer Peripheral": ["Brand16", "Brand17", "Brand18"],
@@ -64,6 +70,7 @@ const PostReview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userEmail = user.email;
+
     const added = await addDataToFireStore(
       productName,
       category,
@@ -84,13 +91,50 @@ const PostReview = () => {
       setImages([]);
 
       alert("Data added to firestore DB!!");
-    }
-  };
+      
 
+      console.log("Document written with ID :", docRef.id);
+      return true;
+
+    }
+
+  }
+   
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setImages(files);
   };
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        if (!user || !user.email) {
+          console.log("User not found or email not available.");
+          return;
+        }
+
+        const userEmail = user.email;
+        const temp = [];
+        const q = query(collection(db, "users"), where("email", "==", userEmail));
+
+        const querySnapshot = await getDocs(q);
+        console.log("Number of documents retrieved:", querySnapshot.size);
+        
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+          temp.push(doc.data());
+        });
+
+        console.log("Temp array:",temp);
+
+        setUserData(temp);
+        console.log(userData);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUser();
+  }, [user]); 
 
   return (
     <div>
@@ -142,7 +186,7 @@ const PostReview = () => {
             <option value="Computer Pheriperal">Computer Peripheral</option>
           </select>
 
-         
+
           {category && (
             <div className="md:col-span-5">
               <label
