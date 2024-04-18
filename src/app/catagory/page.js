@@ -2,11 +2,11 @@ import React from "react";
 
 const page = () => {
   return (
-    <section className="bg-gray-900">
-      <div className="py-2 sm:py-8 block lg:py-10 relative bg-opacity-50 z-40">
-        <div className="px-4 mx-auto max-w-4xl sm:px-2 lg:px-4 relative">
+    <section className="bg-[#FDA403]">
+      <div className="py-2 sm:py-8 block lg:py-10 relative bg-opacity-50 z-40 ">
+        <div className="px-4 mx-auto max-w-4xl sm:px-2 lg:px-4 relative text-[#91091E] font-sans">
           <div className="max-w-xl mx-auto text-center text-white">
-            <p className="text-4xl font-semibold tracking-widest text-g uppercase">
+            <p className="text-4xl font-bold tracking-widest text-[#91091E] uppercase">
               Categories:
             </p>
           </div>
@@ -20,7 +20,7 @@ const page = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="hover:-translate-y-3 w-[150px] h-[150px]"
+                  className="hover:-translate-y-3 w-[150px] h-[150px] "
                 >
                   <path
                     d="M12 18H12.01M11 6H13M9.2 21H14.8C15.9201 21 16.4802 21 16.908 20.782C17.2843 20.5903 17.5903 20.2843 17.782 19.908C18 19.4802 18 18.9201 18 17.8V6.2C18 5.0799 18 4.51984 17.782 4.09202C17.5903 3.71569 17.2843 3.40973 16.908 3.21799C16.4802 3 15.9201 3 14.8 3H9.2C8.0799 3 7.51984 3 7.09202 3.21799C6.71569 3.40973 6.40973 3.71569 6.21799 4.09202C6 4.51984 6 5.07989 6 6.2V17.8C6 18.9201 6 19.4802 6.21799 19.908C6.40973 20.2843 6.71569 20.5903 7.09202 20.782C7.51984 21 8.07989 21 9.2 21Z"
@@ -103,7 +103,7 @@ const page = () => {
 
             <a
               href="#"
-              className="w-fit h-fit transition-all duration-1000 bg-white rounded-xl hover:bg-blue-500 hover:shadow-xl m-1 p-2 relative z-40 group"
+              className="w-fit h-fit transition-all duration-1000 bg-white rounded-xl hover:bg-blue-500 hover:shadow-xl m-0 p-2 relative z-40 group"
             >
               <div className="bg-white p-2 flex flex-col items-center justify-center  transition-all duration-1000 hover:bg-gray-200 rounded-md shadow-md hover:shadow-xl text-center">
                 <svg
@@ -122,7 +122,7 @@ const page = () => {
                     <path d="M20.76,24.23a1,1,0,0,0-.63-.23H11.88a1,1,0,0,0-.64.23l-4.87,4a1,1,0,0,0-.31,1.11A1,1,0,0,0,7,30H25a1,1,0,0,0,.94-.66,1,1,0,0,0-.31-1.11ZM9.79,28l2.44-2h7.54l2.44,2Z" />
                   </g>
                 </svg>
-                <div className="text-2xl mt-4 font-bold">Computer <br/> Peripherals</div>
+                <div className="text-2xl mt-0 font-bold">Computer <br/> Peripherals</div>
               </div>
             </a>
 
@@ -152,7 +152,7 @@ const page = () => {
                     fill="#000000"
                   />
                 </svg>
-                <div className="text-2xl mt-4 font-bold">Home Appliances</div>
+                <div className="text-2xl mt-0 font-bold">Home <br/> Appliances</div>
               </div>
             </a>
           </div>

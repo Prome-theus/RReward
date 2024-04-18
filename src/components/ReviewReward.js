@@ -9,7 +9,7 @@ const ReviewCard = ({ review }) => {
         <div>
           <h2 className="text-xl font-semibold mb-2">{review.title}</h2>
           <p className="text-gray-600 mb-2">Rating: {review.rating}</p>
-          <p className="text-gray-800">{review.content}</p>
+          <p className="text-gray-800 ">{review.content}</p>
         </div>
       </div>
     );
