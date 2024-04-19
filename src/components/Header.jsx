@@ -21,8 +21,8 @@ const Header = () => {
   };
 
   return (
-    <header className="text-white body-font">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <header className="bg-white text-gray-900 body-font">
+      <div className="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
         <a className="flex items-center hover:text-indigo-800 mb-4 md:mb-0">
           <img
             className="m-auto border rounded-[14px]"
@@ -30,7 +30,7 @@ const Header = () => {
             alt="Logo"
             width={50}
           />
-          <span className="center ml-3 text-3xl font-semibol text-white">
+          <span className="center ml-3 text-3xl font-semibol">
             REVIEW REWARD
           </span>
         </a>
@@ -44,7 +44,7 @@ const Header = () => {
                 src={user.photoURL} // Assuming user.photoURL contains the URL of the user's image
                 alt="User"
               />
-              <span className="ml-2 text-gray-300">{user.displayName}</span>
+              <span className="ml-2 text-gray-700">{user.displayName}</span>
               <button
                 onClick={handleSignOut}
                 className="text-gray-700 dark:text-white"

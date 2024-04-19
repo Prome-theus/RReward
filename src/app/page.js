@@ -1,7 +1,35 @@
-"use client"
-import React, { useRef } from 'react';
-import Link from 'next/link';
+"use client";
+import React, { useRef } from "react";
+// import { Gravitas_One } from "next/font/google";
+import { Oswald } from "next/font/google";
+import { Shrikhand } from "next/font/google";
+import { Concert_One } from "next/font/google";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+
+// const gravitas = Gravitas_One({
+//   subsets: ["latin"],
+//   style: ["normal"],
+//   weight: ["400"],
+// });
+
+const oswald = Oswald({
+  weight: ["400"],
+  subsets: ["latin"],
+  style: ["normal"],
+});
+
+const shrikhand = Shrikhand({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"],
+});
+
+const concertone = Concert_One({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal"],
+});
 
 const items = [
   {
@@ -44,11 +72,19 @@ const Page = () => {
     >
       <div className="h-[600vh] bg-[#18181b] relative" ref={ref}>
         <div className="w-screen h-[calc(100vh-6rem)] text-white flex flex-col items-center justify-center text-8xl text-center">
-          <div>GIVE REVIEW.</div>
-          <div>EARN REWARDS.</div>
-          <div className='bg-[#18181b] mt-5'>
-            <div className=' text-4xl dark:text-white'>EVERY REVIEW YOU POST COMES WITH EXCITING PRIZES</div>
-            <div className='text-4xl dark:text-white'>SO WHAT'S STOPPING YOU</div>
+          <div className={concertone.className}>
+            <div>GIVE REVIEW.</div>
+            <div>EARN REWARDS.</div>
+          </div>
+          <div className="bg-[#18181b] mt-5">
+            <div className={oswald.className}>
+              <div className=" text-xl dark:text-white">
+                EVERY REVIEW YOU POST COMES WITH EXCITING PRIZES
+              </div>
+              <div className="text-xl dark:text-white">
+                SO WHAT'S STOPPING YOU
+              </div>
+            </div>
           </div>
         </div>
 
@@ -68,7 +104,9 @@ const Page = () => {
                     {item.desc}
                   </p>
                   <Link href={item.link}>
-                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded">See Demo</button>
+                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded">
+                      See Demo
+                    </button>
                   </Link>
                 </div>
               </div>
@@ -84,7 +122,10 @@ const Page = () => {
               REWARD FOR REVIEW
             </h2>
             <p className="mb-4">
-              Compose a detailed review outlining your experience with the product, covering its performance, durability, ease of use, and any other pertinent factors. Offer genuine insights to aid potential buyers in making informed decisions.
+              Compose a detailed review outlining your experience with the
+              product, covering its performance, durability, ease of use, and
+              any other pertinent factors. Offer genuine insights to aid
+              potential buyers in making informed decisions.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-8">
@@ -110,8 +151,9 @@ const Page = () => {
               <span className="font-extrabold"></span>
             </h2>
             <p className="mb-4 font-light">
-              Exciting rewards for every review you post.
-              Reward Review makes the service provider understand the customers and the response of the users on the products.
+              Exciting rewards for every review you post. Reward Review makes
+              the service provider understand the customers and the response of
+              the users on the products.
             </p>
             <a
               href="/AboutUs"
@@ -136,6 +178,6 @@ const Page = () => {
       </section>
     </motion.div>
   );
-}
+};
 
 export default Page;
