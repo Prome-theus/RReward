@@ -91,13 +91,37 @@ const PostReview = () => {
       setImages([]);
 
       alert("Data added to firestore DB!!");
-      
+      const q = query(collection(db, "users"), where("email", "==", userEmail));
 
-      console.log("Document written with ID :", docRef.id);
+      const querySnapshot = await getDocs(q);
+
+      if (!querySnapshot.empty) {
+          const doc = querySnapshot.docs[0];  
+          const docRef = doc.ref;
+          const currentReviewPoints = doc.data().reviewPoints;
+          await updateDoc(docRef, {
+              reviewPoints: currentReviewPoints+100 // bhai yahan pe apna logic add kr dena abhi ke liye 100 hardcoded rakha tha
+          });
+        console.log("review submitted successfully!!")
+      } else {
+          console.log("No documents found with the provided email.");
+      }
+      
       return true;
 
     }
 
+  }
+  async function updateReviewPoints(userEmail, newReviewPoints) {
+    try {
+      const userRef = doc(db, "users", userEmail);
+      await updateDoc(userRef, {
+        reviewPoints: newReviewPoints
+      });
+      console.log("User's review points updated successfully!");
+    } catch (error) {
+      console.error("Error updating user's review points:", error);
+    }
   }
    
   const handleImageChange = (e) => {
