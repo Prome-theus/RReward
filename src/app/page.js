@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { Oswald } from "next/font/google";
+import { Bebas_Neue } from "next/font/google";
 import { Concert_One } from "next/font/google";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -14,6 +15,12 @@ const oswald = Oswald({
 const concertone = Concert_One({
   subsets: ["latin"],
   weight: ["400"],
+  style: ["normal"],
+});
+
+const bebasneue = Bebas_Neue({
+  weight: ["400"],
+  subsets: ["latin"],
   style: ["normal"],
 });
 
@@ -88,14 +95,18 @@ const Page = () => {
                 key={item.id}
               >
                 <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl md:text-4xl lg:text-6xl xl:text-8xl font-bold">
-                    {item.title}
-                  </h1>
-                  <p className="w-80 md:w-[500px] md:text-lg xl:w-[600px]">
-                    {item.desc}
-                  </p>
+                  <div className={concertone.className}>
+                    <h1 className="text-xl md:text-4xl lg:text-6xl xl:text-8xl font-bold">
+                      {item.title}
+                    </h1>
+                  </div>
+                  <div className={oswald.className}>
+                    <p className="w-80 md:w-[500px] md:text-lg xl:w-[600px]">
+                      {item.desc}
+                    </p>
+                  </div>
                   <Link href={item.link}>
-                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded">
+                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-4 lg:text-lg bg-white text-gray-600 font-semibold m-4 rounded hover:bg-blue-600 hover:text-white">
                       See Demo
                     </button>
                   </Link>
@@ -109,15 +120,19 @@ const Page = () => {
       <div className="bg-[#18181b] w-screen h-screen flex flex-col gap-16 items-center justify-center text-center">
         <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
           <div className="font-light text-white sm:text-lg dark:text-gray-400">
-            <h2 className="mb-4 text-4xl font-extrabold text-white">
-              REWARD FOR REVIEW
-            </h2>
-            <p className="mb-4">
-              Compose a detailed review outlining your experience with the
-              product, covering its performance, durability, ease of use, and
-              any other pertinent factors. Offer genuine insights to aid
-              potential buyers in making informed decisions.
-            </p>
+            <div className={concertone.className}>
+              <h2 className="mb-4 text-4xl font-extrabold text-white">
+                REWARD FOR REVIEW
+              </h2>
+            </div>
+            <div className={bebasneue.className}>
+              <p className="mb-4">
+                Compose a detailed review outlining your experience with the
+                product, covering its performance, durability, ease of use, and
+                any other pertinent factors. Offer genuine insights to aid
+                potential buyers in making informed decisions.
+              </p>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-4 mt-8">
             <img
@@ -137,33 +152,39 @@ const Page = () => {
       <section className="bg-[#18181b] w-screen h-screen flex flex-col gap-16 items-center justify-center text-center dark:bg-gray-800">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="max-w-screen-lg sm:text-lg text-white">
-            <h2 className="mb-4 text-4xl font-bold text-white">
-              Helping users for better shopping and product experience
-              <span className="font-extrabold"></span>
-            </h2>
-            <p className="mb-4 font-light">
-              Exciting rewards for every review you post. Reward Review makes
-              the service provider understand the customers and the response of
-              the users on the products.
-            </p>
-            <a
-              href="/AboutUs"
-              className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700"
-            >
-              Learn more
-              <svg
-                className="ml-1 w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
+            <div className={oswald.className}>
+              <h2 className="mb-4 text-4xl font-bold text-white">
+                Helping users for better shopping and product experience
+                <span className="font-extrabold"></span>
+              </h2>
+            </div>
+            <div className={bebasneue.className}>
+              <p className="mb-4 font-light">
+                Exciting rewards for every review you post. Reward Review makes
+                the service provider understand the customers and the response
+                of the users on the products.
+              </p>
+            </div>
+            <div className={oswald.className}>
+              <a
+                href="/AboutUs"
+                className="inline-flex items-center font-medium text-blue-600 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-700"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-            </a>
+                Learn more
+                <svg
+                  className="ml-1 w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>

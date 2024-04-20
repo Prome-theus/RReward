@@ -63,9 +63,11 @@ const Header = () => {
             </div>
           ) : (
             // Login/Signup button
+            <div className={concertone.className}>
             <a href="/Login" className="text-gray-700 dark:text-white">
               Login/Signup
             </a>
+            </div>
           )}
         </div>
       </div>
