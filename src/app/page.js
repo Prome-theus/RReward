@@ -1,27 +1,13 @@
 "use client";
 import React, { useRef } from "react";
-// import { Gravitas_One } from "next/font/google";
 import { Oswald } from "next/font/google";
-import { Shrikhand } from "next/font/google";
 import { Concert_One } from "next/font/google";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// const gravitas = Gravitas_One({
-//   subsets: ["latin"],
-//   style: ["normal"],
-//   weight: ["400"],
-// });
-
 const oswald = Oswald({
   weight: ["400"],
   subsets: ["latin"],
-  style: ["normal"],
-});
-
-const shrikhand = Shrikhand({
-  subsets: ["latin"],
-  weight: ["400"],
   style: ["normal"],
 });
 
@@ -71,14 +57,17 @@ const Page = () => {
       transition={{ duration: 1 }}
     >
       <div className="h-[600vh] bg-[#18181b] relative" ref={ref}>
-        <div className="w-screen h-[calc(100vh-6rem)] text-white flex flex-col items-center justify-center text-8xl text-center">
+        <div
+          className="w-screen h-[calc(100vh-6rem)] text-white flex flex-col items-center justify-center text-8xl text-center bg-cover "
+          style={{ backgroundImage: "url('/moneyrain.gif')" }}
+        >
           <div className={concertone.className}>
             <div>GIVE REVIEW.</div>
             <div>EARN REWARDS.</div>
           </div>
-          <div className="bg-[#18181b] mt-5">
+          <div className="mt-5">
             <div className={oswald.className}>
-              <div className=" text-xl dark:text-white">
+              <div className="text-xl dark:text-white">
                 EVERY REVIEW YOU POST COMES WITH EXCITING PRIZES
               </div>
               <div className="text-xl dark:text-white">
