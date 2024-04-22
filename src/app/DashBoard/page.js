@@ -14,7 +14,6 @@ const Dashboard = () => {
 
   return (
     <div className="text-white flex">
-      <Sidebar user={user} />
       <div className="container mx-auto px-4 py-8">
         {user && ( // Render only if user is available
           <div>
@@ -35,6 +34,7 @@ const Dashboard = () => {
           </div>
         )}
       </div>
+        <Sidebar user={user} />
     </div>
   );
 };

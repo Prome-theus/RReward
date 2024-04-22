@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 import { Concert_One } from "next/font/google";
-import { UserAuth } from '../app/context/AuthContext';
+import { UserAuth } from "../app/context/AuthContext";
+import Link from "next/link";
 
 const concertone = Concert_One({
   subsets: ["latin"],
@@ -38,9 +39,7 @@ const Header = () => {
             width={50}
           />
           <div className={concertone.className}>
-          <span className="text-center ml-3 text-3xl ">
-            REVIEW REWARD
-          </span>
+            <span className="text-center ml-3 text-3xl ">REVIEW REWARD</span>
           </div>
         </a>
 
@@ -48,11 +47,13 @@ const Header = () => {
           {/* User image and sign out button */}
           {user ? (
             <div className="flex items-center">
-              <img
-                className="w-8 h-8 rounded-full"
-                src={user.photoURL} // Assuming user.photoURL contains the URL of the user's image
-                alt="User"
-              />
+              <Link href="/DashBoard">
+                <img
+                  className="w-8 h-8 rounded-full"
+                  src={user.photoURL} // Assuming user.photoURL contains the URL of the user's image
+                  alt="User"
+                />
+              </Link>
               <span className="ml-2 text-gray-700">{user.displayName}</span>
               <button
                 onClick={handleSignOut}
@@ -64,9 +65,9 @@ const Header = () => {
           ) : (
             // Login/Signup button
             <div className={concertone.className}>
-            <a href="/Login" className="text-gray-700 dark:text-white">
-              Login/Signup
-            </a>
+              <Link href="/Login" className="text-gray-700 dark:text-white">
+                Login/Signup
+              </Link>
             </div>
           )}
         </div>

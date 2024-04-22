@@ -32,10 +32,17 @@ export default function RootLayout({ children }) {
 }
 
 
-    //create a seprate databse for users data -- done
+    //create a seprate database for users data -- done
     //on login page check user with database if new user then review points sholud be provided -- done
-    //every review point proived for the review must be added to the users review points
+    //every review point proived for the review must be added to the users review points --done
+
     //review points must be used for buying rewards 
     //user setting page for deleting review
     //all review page
-    
+    //search implementation(killer)
+    //icon to dashboard(varun)
+    //privacy policy(varun)
+    //footer setup(varun)
+    //category fetch data(shivam)
+    //landing page(tanish)
+  
