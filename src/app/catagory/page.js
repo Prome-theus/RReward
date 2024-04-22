@@ -1,18 +1,19 @@
 import React from "react";
+import Link from "next/link";
 
 const page = () => {
   return (
-    <section className="bg-[#FDA403]">
+    <section className="bg-slate-900">
       <div className="py-2 sm:py-8 block lg:py-10 relative bg-opacity-50 z-40 ">
-        <div className="px-4 mx-auto max-w-4xl sm:px-2 lg:px-4 relative text-[#91091E] font-sans">
+        <div className="px-4 mx-auto max-w-4xl sm:px-2 lg:px-4 relative text-black font-sans">
           <div className="max-w-xl mx-auto text-center text-white">
-            <p className="text-4xl font-bold tracking-widest text-[#91091E] uppercase">
+            <p className="text-4xl font-bold tracking-widest text-white uppercase">
               Categories:
             </p>
           </div>
           <div className="grid grid-cols-1 gap-2 mt-12 sm:grid-cols-3 lg:mt-10 justify-items-center">
-            <a
-              href="#"
+            <Link
+              href="/catagory/Mobiles"
               className="w-fit h-fit transition-all duration-1000 bg-white rounded-xl hover:bg-blue-500 hover:shadow-xl m-1 p-2 relative z-40 group"
             >
               <div className="bg-white p-2 flex flex-col items-center justify-center h-fit w-fit transition-all duration-1000 hover:bg-gray-200 rounded-md shadow-md hover:shadow-xl ">
@@ -30,12 +31,12 @@ const page = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <div className="text-2xl mt-4 font-bold">Mobile</div>
+                <div className="text-2xl mt-4 font-bold text-black">Mobiles</div>
               </div>
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              href="/catagory/audio"
               className="w-fit h-fit transition-all duration-1000 bg-white rounded-xl hover:bg-blue-500 hover:shadow-xl m-1 p-2 relative z-40 group"
             >
               <div className="bg-white p-2 flex flex-col items-center justify-center h-fit w-fit transition-all duration-1000 hover:bg-gray-200 rounded-md shadow-md hover:shadow-xl">
@@ -54,10 +55,10 @@ const page = () => {
                 </svg>
                 <div className="text-2xl mt-4 font-bold">Audio</div>
               </div>
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              href="/catagory/Laptops"
               className="w-fit h-fit transition-all duration-1000 bg-white rounded-xl hover:bg-blue-500 hover:shadow-xl m-1 p-2 relative z-40 group"
             >
               <div className="bg-white p-2 flex flex-col items-center justify-center transition-all duration-1000 hover:bg-gray-200 rounded-md shadow-md hover:shadow-xl text-center">
@@ -77,10 +78,10 @@ const page = () => {
                 </svg>
                 <div className="text-2xl mt-4 font-bold">Laptop</div>
               </div>
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              href="Smartwatch"
               className="w-fit h-fit transition-all duration-1000 bg-white rounded-xl hover:bg-blue-500 hover:shadow-xl m-1 p-2 relative z-40 group"
             >
               <div className="bg-white p-2 flex flex-col items-center justify-center  transition-all duration-1000 hover:bg-gray-200 rounded-md shadow-md hover:shadow-xl text-center">
@@ -99,10 +100,10 @@ const page = () => {
                 </svg>
                 <div className="text-2xl mt-4 font-bold">Smartwatch</div>
               </div>
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              href="/catagory/ComputerPheripherals"
               className="w-fit h-fit transition-all duration-1000 bg-white rounded-xl hover:bg-blue-500 hover:shadow-xl m-0 p-2 relative z-40 group"
             >
               <div className="bg-white p-2 flex flex-col items-center justify-center  transition-all duration-1000 hover:bg-gray-200 rounded-md shadow-md hover:shadow-xl text-center">
@@ -124,10 +125,10 @@ const page = () => {
                 </svg>
                 <div className="text-2xl mt-0 font-bold">Computer <br/> Peripherals</div>
               </div>
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              href="/catagory/HomeAppliances"
               className="w-fit h-fit transition-all duration-1000 bg-white rounded-xl hover:bg-blue-500 hover:shadow-xl m-1 p-2 relative z-40 group"
             >
               <div className="bg-white p-2 flex flex-col items-center justify-center  transition-all duration-1000 hover:bg-gray-200 rounded-md shadow-md hover:shadow-xl text-center">
@@ -154,7 +155,7 @@ const page = () => {
                 </svg>
                 <div className="text-2xl mt-0 font-bold">Home <br/> Appliances</div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
