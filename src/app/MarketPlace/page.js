@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Marketplace from "@/src/components/MarketPlace";
+
 
 const allProducts = [
   {
@@ -169,7 +169,7 @@ const HomePage = () => {
           Filter
         </button>
       </div>
-      <Marketplace products={currentProducts} />
+      
       <div className="flex items-center justify-center">
         <button
           onClick={prevPage}

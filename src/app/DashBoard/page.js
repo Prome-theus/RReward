@@ -1,40 +1,65 @@
 "use client"
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ReviewCard from '@/src/components/ReviewReward';
 import Sidebar from '@/src/components/SideBar';
 import { UserAuth } from '../context/AuthContext';
+import { collection, addDoc, query, where } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { db, storage } from "../firebase";
+import { getDocs, doc, updateDoc } from "firebase/firestore";
+
 
 const Dashboard = () => {
+  
   const { user } = UserAuth(); // Access user object from the context
+  const [review, setReview] = useState([]);
 
   useEffect(() => {
-    // You can fetch user data here if needed
-    // Example: Fetch user data from an API using user.uid
+    const fetchReviews = async () => {
+      if (user) {
+        const userEmail = user.email;
+        const temp = [];
+        const q = query(collection(db, "reviews"), where("userEmail", "==", userEmail));
+
+        const querySnapshot = await getDocs(q);
+        console.log("Number of documents retrieved:", querySnapshot.size);
+        
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+          temp.push(doc.data());
+        });
+
+        console.log("Temp array:", temp);
+
+        setReview(temp);
+        console.log(review);
+      }
+    };
+
+    fetchReviews();
   }, [user]);
 
   return (
     <div className="text-white flex">
       <div className="container mx-auto px-4 py-8">
-        {user && ( // Render only if user is available
+        {user && (
           <div>
             <div className="flex flex-col items-center mb-8">
               <img src={user?.photoURL} alt={user.displayName} className="w-48 h-48 rounded-full mb-4" />
               <h1 className="text-3xl font-semibold">{user.displayName}</h1>
               <p className=" mb-2">{user.email}</p>
-              {/* Display user's review points if available */}
               {user.reviewPoints && <p className="text-gray-600">Review Points: {user.reviewPoints}</p>}
             </div>
             <h1 className="text-3xl font-semibold mb-4">Your Reviews</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {/* Render review cards */}
-              {/* You can use real userReviews if available */}
-              {/* For now, using sample userReviews */}
-             
+              {review.map((reviewData, index) => (
+                <ReviewCard key={index} review={reviewData} />
+              ))}
             </div>
           </div>
         )}
       </div>
-        <Sidebar user={user} />
+      <Sidebar user={user} />
     </div>
   );
 };
