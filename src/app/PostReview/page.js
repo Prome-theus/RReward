@@ -161,15 +161,10 @@ const PostReview = () => {
   }, [user]); 
 
   return (
-    <div>
-      <h2 className="font-bold text-3xl bg-gray-900 text-center pt-10 pb-5 text-white">
-        Product Review
-      </h2>
-      <div className="bg-gray-900 flex items-center justify-center">
-        <form
-          className="bg-white shadow-md rounded px-8 pt-5 pb-8 mb-6 w-11/12"
-          onSubmit={handleSubmit}
-        >
+    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+        <h2 className="text-3xl font-bold text-center mb-8">Product Review</h2>
+        <form onSubmit={handleSubmit}>
           <div className="md:col-span-5">
             <label
               className="block text-gray-700 text-sm font-bold mb-2 text-center"
