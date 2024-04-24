@@ -45,7 +45,7 @@ const Dashboard = () => {
         {user && (
           <div>
             <div className="flex flex-col items-center mb-8">
-              <img src={user?.photoURL} alt={user.displayName} className="w-48 h-48 rounded-full mb-4" />
+              <img src={user?.photoURL} alt={user.displayName} className="w-48 h-48 rounded-full mb-4 " />
               <h1 className="text-3xl font-semibold">{user.displayName}</h1>
               <p className=" mb-2">{user.email}</p>
               {user.reviewPoints && <p className="text-gray-600">Review Points: {user.reviewPoints}</p>}
@@ -59,7 +59,7 @@ const Dashboard = () => {
           </div>
         )}
       </div>
-      <Sidebar user={user} />
+        <Sidebar user={user} />
     </div>
   );
 };
