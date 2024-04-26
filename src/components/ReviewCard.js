@@ -16,14 +16,17 @@ const ReviewCard = ({ review }) => {
         </div>
         <p className="text-gray-500">{purchaseDate}</p>
       </div>
-      {images && images.length > 0 && <img src={images[0]} alt={productName} className="w-full h-auto mb-4" />}
+      {images && images.length > 0 && (
+        <img src={images[0]} alt={productName} className="w-48 h-auto mb-4 object-cover" />
+       
+      )}
       <p className="text-gray-600 mb-4">{productReview}</p>
       <div className="flex justify-between items-center">
         <div>
           <p className="font-semibold">{userEmail}</p>
           <p className="text-gray-500">{purchasePrice}</p>
         </div>
-        {/* Add any additional actions/buttons if needed */}
+       
       </div>
     </div>
   );

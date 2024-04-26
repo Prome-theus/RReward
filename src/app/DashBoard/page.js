@@ -1,13 +1,12 @@
 "use client"
 import { useEffect, useState } from 'react';
-import ReviewCard from '@/src/components/ReviewReward';
+import ReviewCard from '@/src/components/ReviewCard';
 import Sidebar from '@/src/components/SideBar';
 import { UserAuth } from '../context/AuthContext';
 import { collection, addDoc, query, where } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../firebase";
 import { getDocs, doc, updateDoc } from "firebase/firestore";
-
 
 const Dashboard = () => {
   
