@@ -1,11 +1,9 @@
 "use client";
 import React, { useState, useContext, useEffect } from "react";
 import { db, storage } from "../firebase";
-import { collection, addDoc, query, where } from "firebase/firestore";
+import { collection, addDoc, query, where, getDocs, doc, updateDoc } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { UserAuth } from "../context/AuthContext";
-
-import { getDocs, doc, updateDoc } from "firebase/firestore";
 
 async function addDataToFireStore(
   productname,
@@ -16,6 +14,7 @@ async function addDataToFireStore(
   productReview,
   images,
   userEmail,
+  shoppingLink,
 ) {
   try {
     const imageUrls = await Promise.all(
@@ -36,13 +35,13 @@ async function addDataToFireStore(
       images: imageUrls,
       userEmail: userEmail,
       reviewPoint: 100,
+      shoppingLink,// If not provided, set it to empty string
     });
 
-
-    console.log("Document written with ID :", docRef.id);
+    console.log("Document written with ID:", docRef.id);
     return true;
   } catch (error) {
-    console.error("error addding document", error);
+    console.error("Error adding document:", error);
     return false;
   }
 }
@@ -50,13 +49,15 @@ async function addDataToFireStore(
 const PostReview = () => {
   const [productName, setProductName] = useState("");
   const [category, setCategory] = useState("");
-  const [brand, setBrand] = useState("")
+  const [brand, setBrand] = useState("");
   const [purchaseDate, setPurchaseDate] = useState("");
   const [purchasePrice, setPurchasePrice] = useState("");
   const [productReview, setProductReview] = useState("");
   const [images, setImages] = useState([]);
+  const [shoppingLink, setShoppingLink] = useState("");
+
   const { user } = UserAuth();
-  const [userData, setUserData] = useState([])
+  const [userData, setUserData] = useState([]);
 
   const brandOptions = {
     Smartphone: ["APPLE", "SAMSUNG", "ONEPLUS", "REALME", "OPPO", "VIVO", "REDMI", "HONOR"],
@@ -79,55 +80,47 @@ const PostReview = () => {
       purchasePrice,
       productReview,
       images,
-      userEmail
+      userEmail,
+      shoppingLink,
+
     );
     if (added) {
       setProductName("");
       setCategory("");
-      setBrand("")
+      setBrand("");
       setPurchaseDate("");
       setPurchasePrice("");
       setProductReview("");
       setImages([]);
+      setShoppingLink("");
 
-      alert("Data added to firestore DB!!");
+
+      alert("Data added to Firestore DB!!");
+
+      // Update user's review points
       const q = query(collection(db, "users"), where("email", "==", userEmail));
-
       const querySnapshot = await getDocs(q);
-
       if (!querySnapshot.empty) {
-          const doc = querySnapshot.docs[0];  
-          const docRef = doc.ref;
-          const currentReviewPoints = doc.data().reviewPoints;
-          await updateDoc(docRef, {
-              reviewPoints: currentReviewPoints+100 // bhai yahan pe apna logic add kr dena abhi ke liye 100 hardcoded rakha tha
-          });
-        console.log("review submitted successfully!!")
+        const doc = querySnapshot.docs[0];
+        const docRef = doc.ref;
+        const currentReviewPoints = doc.data().reviewPoints;
+        await updateDoc(docRef, {
+          reviewPoints: currentReviewPoints + 100
+        });
+        console.log("Review submitted successfully!!");
       } else {
-          console.log("No documents found with the provided email.");
+        console.log("No documents found with the provided email.");
       }
-      
+
       return true;
-
     }
+  };
 
-  }
-  async function updateReviewPoints(userEmail, newReviewPoints) {
-    try {
-      const userRef = doc(db, "users", userEmail);
-      await updateDoc(userRef, {
-        reviewPoints: newReviewPoints
-      });
-      console.log("User's review points updated successfully!");
-    } catch (error) {
-      console.error("Error updating user's review points:", error);
-    }
-  }
-   
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setImages(files);
   };
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -139,17 +132,15 @@ const PostReview = () => {
         const userEmail = user.email;
         const temp = [];
         const q = query(collection(db, "users"), where("email", "==", userEmail));
-
         const querySnapshot = await getDocs(q);
         console.log("Number of documents retrieved:", querySnapshot.size);
-        
+
         querySnapshot.forEach((doc) => {
           console.log(doc.id, " => ", doc.data());
           temp.push(doc.data());
         });
 
-        console.log("Temp array:",temp);
-
+        console.log("Temp array:", temp);
         setUserData(temp);
         console.log(userData);
       } catch (error) {
@@ -158,7 +149,7 @@ const PostReview = () => {
     };
 
     fetchUser();
-  }, [user]); 
+  }, [user]);
 
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center">
@@ -263,6 +254,26 @@ const PostReview = () => {
               required
             />
           </div>
+          <div className="md:col-span-5">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2 text-center"
+              htmlFor="shopping link"
+            >
+              Shopping Link
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="shoppinglink"
+              type="url"
+              placeholder="Shopping Link"
+              value={shoppingLink}
+              onChange={(e) => setShoppingLink(e.target.value)} // Change setProductName to setShoppingLink
+            />
+          </div>
+
+
+
+
 
           <div className="md:col-span-5">
             <label
