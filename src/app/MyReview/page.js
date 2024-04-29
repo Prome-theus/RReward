@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import ReviewCard from "@/src/components/ReviewCard";
+
 
 export default function Review() {
   const [reviews, setReviews] = useState([]);
@@ -17,7 +19,7 @@ export default function Review() {
           reviewsData.push({ docId: doc.id, ...doc.data() });
         });
         setReviews(reviewsData);
-      } catch (error) {
+      } catch (error){
         console.error("Error fetching reviews:", error);
       }
     };
@@ -45,34 +47,9 @@ export default function Review() {
       </p>
       <main className="container mx-auto py-10 px-8">
         <div className="grid lg:grid-cols-3 gap-10 md:grid-cols-2 grid-col-1">
-          {currentReviews.map((review) => (
-            <div key={review.docId} className="shadow-lg rounded-lg">
-              {/* Assuming there are images in the review data */}
-              {review.images && review.images.length > 0 && (
-                <img className="rounded-t-lg" src={review.images[0]} alt="" />
-              )}
-              <div className="p-5">
-                <h3 className="text-3xl font-bold text-amber-600 mb-3">
-                  {review.productName} - {review.brand}
-                </h3>
-                <p className="text-lg font-normal text-stone-950">
-                  {review.productReview}
-                </p>
-                <p className="text-lg font-normal text-stone-950">
-                  Purchase Date: {review.purchaseDate}
-                </p>
-                <p className="text-lg font-normal text-stone-950">
-                  Purchase Price: {review.purchasePrice}
-                </p>
-                <p className="text-lg font-normal text-stone-950">
-                  Review Point: {review.reviewPoint}
-                </p>
-                <p className="text-lg font-normal text-stone-950">
-                  User Email: {review.userEmail}
-                </p>
-              </div>
-            </div>
-          ))}
+        {reviews.map((reviewData, index) => (
+                <ReviewCard key={index} review={reviewData} />
+              ))}
         </div>
         <div className="flex justify-center mt-4">
           <button
