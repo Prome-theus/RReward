@@ -41,27 +41,6 @@ export default function SettingsPage() {
           </div>
 
           <div className="md:col-span-1 bg-white rounded-lg shadow-md p-6 hover:bg-slate-600 hover:text-white">
-            <Link href="/DashBoard/Settings/ChangePass">
-            <h2 className="text-xl font-bold mb-4">Change Password</h2>
-            <p className="text-gray-600">changed password</p>
-            </Link>
-          </div>
-
-          <div className="md:col-span-1 bg-white rounded-lg shadow-md p-6 hover:bg-slate-600 hover:text-white">
-            <Link href="/DashBoard/Settings/YourActivity">
-            <h2 className="text-xl font-bold mb-4">Your Activity</h2>
-            <p className="text-gray-600">Your Activity</p>
-            </Link>
-          </div>
-
-          <div className="md:col-span-1 bg-white rounded-lg shadow-md p-6 hover:bg-slate-600 hover:text-white">
-            <Link href="/DashBoard/Settings/OrderHistory">
-            <h2 className="text-xl font-bold mb-4">Order History</h2>
-            <p className="text-gray-600">Order History</p>
-            </Link>
-          </div>
-
-          <div className="md:col-span-1 bg-white rounded-lg shadow-md p-6 hover:bg-slate-600 hover:text-white">
             <Link href="/DashBoard/Settings/CustomerCare">
             <h2 className="text-xl font-bold mb-4">Coustomer Care</h2>
             <p className="text-gray-600">Coustomer Care</p>

@@ -10,7 +10,7 @@ export default function TermsAndConditions(){
   };
 
   return (
-    <div className="w-screen h-screen] justify-center bg-cover"
+    <div className="w-screen h-screen justify-center bg-cover"
         style={{ backgroundImage: "url('/moneyrain.gif')" }}>
       <div className="flex justify-center items-center h-screen ">
         <Flipper flipKey={flipped}>
