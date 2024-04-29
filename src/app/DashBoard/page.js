@@ -44,7 +44,11 @@ const Dashboard = () => {
   const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
   const currentReviews = review.slice(indexOfFirstReview, indexOfLastReview);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber, event) => {
+    event.preventDefault();
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  };
 
   return (
     <div className="text-white flex">
@@ -69,7 +73,7 @@ const Dashboard = () => {
                   {Array.from({ length: Math.ceil(review.length / reviewsPerPage) }, (_, i) => (
                     <li key={i}>
                       <button
-                        onClick={() => paginate(i + 1)}
+                        onClick={(e) => paginate(i + 1, e)}
                         className={`bg-blue-500 text-white hover:bg-blue-700 font-semibold py-2 px-4 rounded mx-1 ${
                           currentPage === i + 1 ? 'bg-blue-700' : ''
                         }`}
