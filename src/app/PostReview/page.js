@@ -152,176 +152,151 @@ const PostReview = () => {
   }, [user]);
 
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
-        <h2 className="text-3xl font-bold text-center mb-8">Product Review</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="md:col-span-5">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2 text-center"
-              htmlFor="Product Name"
-            >
-              Product Name
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="productname"
-              type="text"
-              placeholder="Product Name"
-              value={productName}
-              onChange={(e) => setProductName(e.target.value)}
-              required
-            />
-          </div>
-
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2 text-center"
-            htmlFor="Product Category"
+    <div className="w-screen h-[calc(100vh-6rem)] text-white flex flex-col items-center justify-center text-8xl text-center bg-cover">
+       <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            controls={false}
+            onContextMenu={(e) => e.preventDefault()}
+            className="absolute inset-0 w-screen"
           >
-            Product Category
-          </label>
-
-          <select
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            onChange={(e) => setCategory(e.target.value)}
-            value={category}
-            required
-          >
-            <option value="">Select</option>
-            <option value="Smartphone">Smartphone</option>
-            <option value="Laptops">Laptops</option>
-            <option value="Smartwatches">Smartwatches</option>
-            <option value="Headphones">Headphones</option>
-            <option value="Home Appliances">Home Appliances</option>
-            <option value="Computer Pheriperal">Computer Peripheral</option>
-          </select>
-
-
-          {category && (
-            <div className="md:col-span-5">
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2 text-center"
-                htmlFor="Product Brand"
-              >
-                Product Brand
-              </label>
-              <select
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                onChange={(e) => setBrand(e.target.value)}
-                value={brand}
-                required
-              >
-                <option value="">Select</option>
-                {brandOptions[category].map((brandOption, index) => (
-                  <option key={index} value={brandOption}>
-                    {brandOption}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-          <div className="md:col-span-5">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2 text-center"
-              htmlFor="Purchase Date"
-            >
-              Purchase Date
+            <source src="landingbg.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+    <form onSubmit={handleSubmit} className="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20">
+  <h2 className="text-xl font-bold text-white capitalize dark:text-white text-center mb-4">Product Review</h2>
+  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div>
+      <label htmlFor="productname" className="text-white dark:text-gray-200 block mb-1">Product Name</label>
+      <input
+        type="text"
+        id="productname"
+        className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+        placeholder="Product Name"
+        value={productName}
+        onChange={(e) => setProductName(e.target.value)}
+        required
+      />
+    </div>
+    <div>
+      <label htmlFor="productcategory" className="text-white dark:text-gray-200 block mb-1">Product Category</label>
+      <select
+        id="productcategory"
+        className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+        onChange={(e) => setCategory(e.target.value)}
+        value={category}
+        required
+      >
+        <option value="">Select</option>
+        <option value="Smartphone">Smartphone</option>
+        <option value="Laptops">Laptops</option>
+        <option value="Smartwatches">Smartwatches</option>
+        <option value="Headphones">Headphones</option>
+        <option value="Home Appliances">Home Appliances</option>
+        <option value="Computer Peripheral">Computer Peripheral</option>
+      </select>
+    </div>
+    {category && (
+      <div>
+        <label htmlFor="productbrand" className="text-white dark:text-gray-200 block mb-1">Product Brand</label>
+        <select
+          id="productbrand"
+          className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+          onChange={(e) => setBrand(e.target.value)}
+          value={brand}
+          required
+        >
+          <option value="">Select</option>
+          {brandOptions[category].map((brandOption, index) => (
+            <option key={index} value={brandOption}>{brandOption}</option>
+          ))}
+        </select>
+      </div>
+    )}
+    <div>
+      <label htmlFor="purchasedate" className="text-white dark:text-gray-200 block mb-1">Purchase Date</label>
+      <input
+        type="date"
+        id="purchasedate"
+        className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+        value={purchaseDate}
+        onChange={(e) => setPurchaseDate(e.target.value)}
+        required
+      />
+    </div>
+    <div>
+      <label htmlFor="proprice" className="text-white dark:text-gray-200 block mb-1">Purchased Price</label>
+      <input
+        type="number"
+        id="proprice"
+        className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+        placeholder="Purchased Price"
+        value={purchasePrice}
+        onChange={(e) => setPurchasePrice(e.target.value)}
+        required
+      />
+    </div>
+    <div>
+      <label htmlFor="shoppinglink" className="text-white dark:text-gray-200 block mb-1">Shopping Link</label>
+      <input
+        type="url"
+        id="shoppinglink"
+        className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+        placeholder="Shopping Link"
+        value={shoppingLink}
+        onChange={(e) => setShoppingLink(e.target.value)}
+      />
+    </div>
+    <div className="col-span-2">
+      <label htmlFor="proreview" className="block text-gray-700 text-sm font-bold mb-1 text-center">Product Review</label>
+      <textarea
+        rows={5}
+        id="proreview"
+        className="block w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+        placeholder="Product Review"
+        value={productReview}
+        onChange={(e) => setProductReview(e.target.value)}
+        required
+      ></textarea>
+    </div>
+    <div className="col-span-2">
+      <label htmlFor="productimage" className="block text-gray-700 text-sm font-bold mb-1 text-center">Product Image</label>
+      <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+        <div className="space-y-1 text-center">
+          <svg className="mx-auto h-12 w-12 text-white" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <div className="flex text-sm text-gray-600">
+            <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+              <span className="">Upload a file</span>
+              <input
+                type="file"
+                multiple
+                className="sr-only"
+                id="file-upload"
+                onChange={handleImageChange}
+              />
             </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="purchasedate"
-              type="date"
-              value={purchaseDate}
-              onChange={(e) => setPurchaseDate(e.target.value)}
-              required
-            />
+            <p className="pl-1 text-white">or drag and drop</p>
           </div>
-
-          <div className="md:col-span-5">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2 text-center"
-              htmlFor="Purchased Price"
-            >
-              Purchased Price
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="proprice"
-              type="number"
-              placeholder="Purchased Price"
-              value={purchasePrice}
-              onChange={(e) => setPurchasePrice(e.target.value)}
-              required
-            />
-          </div>
-          <div className="md:col-span-5">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2 text-center"
-              htmlFor="shopping link"
-            >
-              Shopping Link
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="shoppinglink"
-              type="url"
-              placeholder="Shopping Link"
-              value={shoppingLink}
-              onChange={(e) => setShoppingLink(e.target.value)} // Change setProductName to setShoppingLink
-            />
-          </div>
-
-
-
-
-
-          <div className="md:col-span-5">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2 text-center"
-              htmlFor="Product Review"
-            >
-              Product Review
-            </label>
-            <textarea
-              row={5}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="proreview"
-              placeholder="Product Review"
-              value={productReview}
-              onChange={(e) => setProductReview(e.target.value)}
-              required
-            ></textarea>
-          </div>
-
-          <div className="md:col-span-5">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2 text-center"
-              htmlFor="Product Image"
-            >
-              Product Image
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="proreview"
-              type="file"
-              multiple
-              placeholder="Choose Image"
-              onChange={handleImageChange}
-            />
-          </div>
-
-          {/* Submit button */}
-          <div className="md:col-span-5 text-center">
-            <button
-              className="bg-blue-500 text-white rounded-md p-2 text-sm text-center m-2"
-              type="submit"
-            >
-              Post Review
-            </button>
-          </div>
-        </form>
+          <p className="text-xs text-white">PNG, JPG, GIF up to 10MB</p>
+        </div>
       </div>
     </div>
+    <div className="md:col-span-2 text-center">
+      <button
+        type="submit"
+        className="bg-blue-500 text-white rounded-md p-2 text-sm text-center m-2"
+      >
+        Post Review
+      </button>
+    </div>
+  </div>
+</form>
+  </div>
+  
   );
 };
 
